@@ -1,6 +1,6 @@
 test:
 	bundle exec rake db:test:prepare
-	bundle exec rake spec
+	bin/rails test
 
 run:
 	bundle exec foreman start
