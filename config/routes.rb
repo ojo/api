@@ -2,6 +2,10 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+  scope '/api' do
+    get 'auth/new'
+  end
+
   root to: 'home#index'
 
   devise_for :users
