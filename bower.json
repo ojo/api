@@ -1,0 +1,21 @@
+{
+  "name": "ttrn",
+  "homepage": "https://github.com/briantigerchow/ttrn",
+  "authors": [
+    "Brian Tiger Chow <brian.holderchow@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-material-design": "^0.5.9"
+  }
+}
