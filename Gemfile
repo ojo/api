@@ -15,6 +15,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'haml-rails'
   gem 'listen', '~> 3.0.5'
   gem 'spring' # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring-watcher-listen', '~> 2.0.0'
