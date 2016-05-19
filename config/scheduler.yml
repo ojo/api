@@ -1,2 +1,2 @@
 HeartbeatJob:
-    cron: "* * * * * *"
+    cron: "*/30 * * * * *"
