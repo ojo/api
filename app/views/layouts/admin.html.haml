@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title TTRN Admin
+    = csrf_meta_tags
+    = javascript_include_tag 'admin'
+    = stylesheet_link_tag    'admin/admin', media: 'all'
+  %body
+    %p.notice= notice
+    %p.alert= alert
+    = button_to 'sign out', destroy_user_session_path, method: :delete
+    = yield

@@ -2,6 +2,8 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+  get 'admin', to: 'admin#index'
+
   scope '/api' do
     get 'auth/new'
   end
