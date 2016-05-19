@@ -1,0 +1,2 @@
+HeartbeatJob:
+    cron: "*/15 * * * * *"
