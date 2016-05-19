@@ -7,6 +7,9 @@ gem 'pg', '~> 0.18' # Use postgresql as the database for Active Record
 gem 'puma', '~> 3.0' # Use Puma as the app server
 gem 'rails', '>= 5.0.0.rc1', '< 5.1' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
+gem 'sidekiq'
+# TODO(btc): use rubygems sinatra once bugfix is merged/released there (https://github.com/sinatra/sinatra/issues/1055)
+gem 'sinatra', :require => nil, :git => 'git://github.com/sinatra/sinatra.git'
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 
 group :development, :test do
@@ -15,6 +18,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'foreman'
   gem 'haml-rails'
   gem 'listen', '~> 3.0.5'
   gem 'spring' # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
