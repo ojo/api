@@ -9,6 +9,5 @@
  *
  *= require_self
  *= require_tree .
- *= require bootstrap-material-design/dist/css/bootstrap-material-design.min
- *= require bootstrap-material-design/dist/css/ripples.min
+ *= require material-design-lite/material
  */

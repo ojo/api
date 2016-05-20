@@ -1,2 +1,2 @@
-//= require bootstrap-material-design/dist/js/material
-//= require bootstrap-material-design/dist/js/ripples
+//= require material-design-lite/material
+
