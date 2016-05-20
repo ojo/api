@@ -19,5 +19,3 @@
 .env
 .ruby-gemset
 .ruby-version
-
-vendor/assets/components
