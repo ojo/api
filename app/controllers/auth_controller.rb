@@ -1,5 +1,6 @@
 class AuthController < ApplicationController
   respond_to :json
+  skip_before_action :authenticate_user!
 
   def new
     e = params[:email]
