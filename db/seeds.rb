@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+ManagedTwitterAccount.create(username: '961wefm')
+ManagedTwitterAccount.create(username: 'star947tt')
+ManagedTwitterAccount.create(username: 'briantigerchow')

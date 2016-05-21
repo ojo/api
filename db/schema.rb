@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519072302) do
+ActiveRecord::Schema.define(version: 20160521020326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "managed_twitter_accounts", force: :cascade do |t|
+    t.string   "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["username"], name: "index_managed_twitter_accounts_on_username", unique: true, using: :btree
+  end
+
+  create_table "tweets", force: :cascade do |t|
+    t.integer  "managed_twitter_account_id"
+    t.bigint   "twitter_id"
+    t.string   "embed"
+    t.json     "data"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["managed_twitter_account_id"], name: "index_tweets_on_managed_twitter_account_id", using: :btree
+    t.index ["twitter_id"], name: "index_tweets_on_twitter_id", unique: true, using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -37,4 +55,5 @@ ActiveRecord::Schema.define(version: 20160519072302) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
 
+  add_foreign_key "tweets", "managed_twitter_accounts"
 end
