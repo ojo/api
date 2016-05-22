@@ -2,14 +2,17 @@ class FetchTweetsJob < ApplicationJob
   queue_as :default
 
   TWEETS_PER_REQUEST = 200
+  NUM_SECONDS_TO_WAIT = 0
 
   def perform(*args)
-    ManagedTwitterAccount.all.each do |a|
-      # must save_tweets between fetch calls. save_tweets has the side effect
-      # of modifying the database. the state of the database alters the request
-      # parameters of subsequent fetches
-      save_tweets(fetch_old_tweets(a), a)
-      save_tweets(fetch_new_tweets(a), a)
+    ManagedTwitterAccount.with_advisory_lock(self.class.name, NUM_SECONDS_TO_WAIT) do
+      ManagedTwitterAccount.all.each do |a|
+        # must save_tweets between fetch calls. save_tweets has the side effect
+        # of modifying the database. the state of the database alters the request
+        # parameters of subsequent fetches
+        save_tweets(fetch_new_tweets(a), a)
+        save_tweets(fetch_old_tweets(a), a)
+      end
     end
   end
 
@@ -25,8 +28,9 @@ class FetchTweetsJob < ApplicationJob
       end # otherwise just fetch the latest
       begin
         resp = $twitter.user_timeline(account.username, opts)
-      rescue Twitter::Error::TooManyRequests
-        return tweets.flatten # we'll get it later
+      rescue Twitter::Error::TooManyRequests => error
+        sleep error.rate_limit.reset_in + 1
+        retry
       end
       if resp.empty?
         break
@@ -42,8 +46,9 @@ class FetchTweetsJob < ApplicationJob
     opts[:count] = TWEETS_PER_REQUEST
     begin
       resp = $twitter.user_timeline(account.username, opts)
-    rescue Twitter::Error::TooManyRequests
-      return tweets.flatten # we'll get it later
+    rescue Twitter::Error::TooManyRequests => error
+      sleep error.rate_limit.reset_in + 1
+      retry
     end
     resp
   end
@@ -57,8 +62,9 @@ class FetchTweetsJob < ApplicationJob
       opts[:since_id] = since_id if since_id != nil # else just fetch the latest
       begin
         resp = $twitter.user_timeline(account.username, opts)
-      rescue Twitter::Error::TooManyRequests
-        return tweets.flatten # we'll get it later
+      rescue Twitter::Error::TooManyRequests => error
+        sleep error.rate_limit.reset_in + 1
+        retry
       end
       if resp.empty?
         break
