@@ -3,3 +3,6 @@ HeartbeatJob:
 
 FetchTweetsJob:
     cron: "*/10 * * * * *"
+
+FetchTweetEmbedsJob:
+    cron: "*/10 * * * * *"
