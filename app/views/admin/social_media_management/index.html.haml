@@ -1,0 +1,17 @@
+.col-md-6
+  %h1{display: 'run-in' } Twitter
+  %p #{Tweet.count} tweets indexed
+  %table.table.table-striped
+    %tr
+      %th.span1 username
+      %th.span1 # embeds fetched (# tweets)
+      %th.span1 latest tweet has embed
+    - ManagedTwitterAccount.order(username: :asc).all.each do |a|
+      %tr
+        %td
+          = link_to a.username, "https://twitter.com/#{a.username}"
+        %td #{a.tweets.where.not(embed: nil).count} (#{a.tweets.count})
+        %td= a.latest_tweet_has_embed
+  = form_for [:admin, ManagedTwitterAccount.new], html: { class: 'form-inline' } do |f|
+    = f.text_field :username, placeholder: 'add twitter account', class: 'form-control'
+    = f.submit class: 'btn btn-primary'

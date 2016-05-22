@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  layout "admin"
+  layout "bootstrap"
 
   def index
   end
