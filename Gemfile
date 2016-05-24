@@ -19,8 +19,6 @@ gem 'with_advisory_lock'
 group :development, :test do
   gem 'byebug', platform: :mri # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'dotenv-rails'
-  gem 'rspec'
-  gem 'rspec-rails', require: false
 end
 
 group :development do
