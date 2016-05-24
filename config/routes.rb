@@ -6,6 +6,14 @@ Rails.application.routes.draw do
     resources :managed_twitter_accounts, only: :create
     get 'socialmedia', to: 'social_media_management#index'
   end
+  if Rails.env.development?
+    authenticate :user do
+      mount Sidekiq::Web => '/admin/sidekiq'
+    end
+  else
+    mount Sidekiq::Web => '/admin/sidekiq'
+    # TODO(btc): set up admin-only access
+  end
 
   get '/admin', to: 'admin#index'
   get 'admin/users', to: 'admin#users'
@@ -18,9 +26,4 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  if Rails.env.development?
-    mount Sidekiq::Web => '/sidekiq'
-  else
-    # TODO(btc): set up admin-only access
-  end
 end
