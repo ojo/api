@@ -4,6 +4,7 @@ class Admin::EventViewModelTest < MiniTest::Test
 
   def setup
     @params = {
+               "name"=>"Untitled", 
                "start_date"=>"05/25/2016", 
                "end_time(1i)"=>"2016", 
                "end_time(2i)"=>"5", 
