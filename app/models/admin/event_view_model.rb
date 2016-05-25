@@ -5,6 +5,8 @@ class Admin::EventViewModel
 
   PUBLIC_ACCESSORS = :name, :start_date, :start_time, :end_time, :recurrences
 
+  validates_presence_of :name, :start_date, :start_time, :end_time
+
   attr_accessor *PUBLIC_ACCESSORS
 
   def to_ice_cube
