@@ -19,12 +19,12 @@ class Admin::SchedulesController < ApplicationController
   end
 
   def create
-    @m = Admin::EventViewModel.new event_view_model_params
-    is_rule = RecurringSelect.is_valid_rule?(@m.recurrences)
-    puts @m.recurrences.class, is_rule
-    if not @m.valid?
-      puts @m.errors.messages
-      head 400
+    @event = Admin::EventViewModel.new event_view_model_params
+    is_rule = RecurringSelect.is_valid_rule?(@event.recurrences)
+    puts @event.recurrences.class, is_rule
+    if not @event.valid?
+      flash[:notice] = @event.errors.messages
+      render :new
       return
     end
     @e = Event.new
