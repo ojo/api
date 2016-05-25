@@ -13,7 +13,11 @@
     .form-group
       = select_recurring 'event', 'recurrences', 
         [ IceCube::Rule.weekly.day(:monday, :tuesday, :wednesday, :thursday, :friday),
-        IceCube::Rule.weekly.day(:saturday, :sunday) ]
+        IceCube::Rule.weekly.day(:saturday, :sunday),
+        IceCube::Rule.weekly.day(:friday),
+        IceCube::Rule.weekly.day(:saturday),
+        IceCube::Rule.weekly.day(:sunday),
+        ], allow_blank: true
     .form-group
       = submit_tag 'save event'
 
