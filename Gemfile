@@ -23,6 +23,9 @@ group :development, :test do
 end
 
 group :development do
+  gem 'minitest-rails', git: 'git@github.com:blowmage/minitest-rails.git'
+  gem 'guard-minitest'
+  gem 'guard'
   gem 'foreman'
   gem 'haml-rails'
   gem 'listen', '~> 3.0.5'
