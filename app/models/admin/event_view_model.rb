@@ -3,7 +3,7 @@ class Admin::EventViewModel
   include ActiveModel::Validations # for validations
   include MultiparameterAttributeAssignment
 
-  PUBLIC_ACCESSORS = :name, :start_date, :start_time, :end_time, :recurrences
+  PUBLIC_ACCESSORS = [:name, :start_date, :start_time, :end_time, :recurrences]
 
   validates_presence_of :name, :start_date, :start_time, :end_time
 
