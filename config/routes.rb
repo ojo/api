@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :managed_twitter_accounts, only: :create
     get 'socialmedia', to: 'social_media_management#index'
+    get 'schedule', to: 'schedules#index'
+    get 'schedule/new', to: 'schedules#new'
+    get 'schedule/list', to: 'schedules#list'
+
+    resources :schedules, only: [:create]
   end
   if Rails.env.development?
     authenticate :user do

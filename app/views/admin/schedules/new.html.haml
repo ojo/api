@@ -1,0 +1,19 @@
+= render 'admin/schedules/tabs'
+
+= form_tag(admin_schedules_path, method: :post, class: 'form-horizontal') do
+  .col-md-6
+    .form-group
+      = text_field('event', 'name', 
+        autofocus: true, class: 'form-control', placeholder: 'Untitled')
+    .form-group
+      = text_field('event', 'start_date', class: 'bootstrap-datepicker form-control') #TODO rename
+    .form-group
+      = time_select 'event', 'start_time', minute_step: 15, ampm: true
+      = time_select 'event', 'end_time', minute_step: 15, ampm: true
+    .form-group
+      = select_recurring 'event', 'recurrences', 
+        [ IceCube::Rule.weekly.day(:monday, :tuesday, :wednesday, :thursday, :friday),
+        IceCube::Rule.weekly.day(:saturday, :sunday) ]
+    .form-group
+      = submit_tag 'save event'
+

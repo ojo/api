@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
 
+gem 'bootstrap-datepicker-rails'
+gem "simple_calendar"
+gem 'recurring_select', git: 'git@github.com:briantigerchow/recurring_select.git', branch: 'patch-1'
 gem 'ice_cube'
 gem 'devise'
 gem 'haml'

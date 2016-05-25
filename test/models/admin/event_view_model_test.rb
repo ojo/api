@@ -1,11 +1,10 @@
 require "test_helper"
 
-class Admin::EventViewModelTest < MiniTest::Unit::TestCase
+class Admin::EventViewModelTest < MiniTest::Test
 
   def setup
     @params = {
                "start_date"=>"05/25/2016", 
-               "end_date"=>"05/25/2016", 
                "end_time(1i)"=>"2016", 
                "end_time(2i)"=>"5", 
                "end_time(3i)"=>"25", 
@@ -50,4 +49,5 @@ class Admin::EventViewModelTest < MiniTest::Unit::TestCase
   def test_instiantiate_without_mass_assignment
     Admin::EventViewModel.new
   end
+
 end

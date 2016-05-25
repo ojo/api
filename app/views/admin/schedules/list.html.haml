@@ -1,0 +1,13 @@
+= render 'admin/schedules/tabs'
+
+.col-md-6
+  %table.table.table-striped
+    %tr
+      %th.span1 name
+      %th.span1 start
+      %th.span1 recurrences
+    - Event.all.each do |e|
+      %tr
+        %td= e.name
+        %td= e.schedule.start_time
+        %td= e.schedule
