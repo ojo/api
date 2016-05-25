@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+gem 'ice_cube'
 gem 'devise'
 gem 'haml'
 gem 'jbuilder', '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
