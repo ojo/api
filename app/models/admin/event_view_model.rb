@@ -14,17 +14,17 @@ class Admin::EventViewModel
     edate = sdate
 
     stime = Time.new(
-      sdate.year, 
-      sdate.month, 
-      sdate.day, 
-      start_time.hour, 
+      sdate.year,
+      sdate.month,
+      sdate.day,
+      start_time.hour,
       start_time.min
     )
     etime = Time.new(
-      edate.year, 
-      edate.month, 
-      edate.day, 
-      end_time.hour, 
+      edate.year,
+      edate.month,
+      edate.day,
+      end_time.hour,
       end_time.min
     )
     IceCube::Schedule.new(stime, end_time: etime).tap do |s|
@@ -39,7 +39,7 @@ class Admin::EventViewModel
     dmy = /\d{2}\/\d{2}\/\d{4}$/
     r.errors.add(attr, 'invalid') unless dmy.match(val)
   end
-  
+
   validates_each :recurrences do |r, attr, val|
     if val != nil
       is_rule = RecurringSelect.is_valid_rule?(val)
