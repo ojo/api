@@ -28,8 +28,8 @@ class Admin::SchedulesController < ApplicationController
       return
     end
     @e = Event.new
-    @e.name = @m.name
-    @e.schedule = @m.to_ice_cube
+    @e.name = @event.name
+    @e.schedule = @event.to_ice_cube
     @e.save!
   end
 
