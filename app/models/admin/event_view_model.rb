@@ -7,6 +7,18 @@ class Admin::EventViewModel
 
   validates_presence_of :name, :start_date, :start_time, :end_time
 
+  validates_each :start_date do |r, attr, val|
+    dmy = /\d{2}\/\d{2}\/\d{4}$/
+    r.errors.add(attr, 'invalid') unless dmy.match(val)
+  end
+
+  validates_each :recurrences do |r, attr, val|
+    if val != nil
+      is_rule = RecurringSelect.is_valid_rule?(val)
+      r.errors.add(attr, 'invalid') unless is_rule
+    end
+  end
+
   attr_accessor *PUBLIC_ACCESSORS
 
   def to_ice_cube
@@ -32,18 +44,6 @@ class Admin::EventViewModel
         r = RecurringSelect.dirty_hash_to_rule(@recurrences)
         s.add_recurrence_rule r
       end
-    end
-  end
-
-  validates_each :start_date do |r, attr, val|
-    dmy = /\d{2}\/\d{2}\/\d{4}$/
-    r.errors.add(attr, 'invalid') unless dmy.match(val)
-  end
-
-  validates_each :recurrences do |r, attr, val|
-    if val != nil
-      is_rule = RecurringSelect.is_valid_rule?(val)
-      r.errors.add(attr, 'invalid') unless is_rule
     end
   end
 
