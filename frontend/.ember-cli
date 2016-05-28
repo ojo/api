@@ -1,0 +1,6 @@
+{
+  "port": 9610,
+  "proxy": "http://localhost:5000",
+  "disableAnalytics": true,
+  "verbose": true
+}
