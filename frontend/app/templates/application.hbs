@@ -1,3 +1,30 @@
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+<div class="header-panel">
+  <!-- TODO extract variable -->
+  <h1>WEFM</h1>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="menu col-xs-3">
+      <!-- TODO links -->
+      <ul>
+        <li>
+          News Feed
+        </li>
+        <li>
+          About
+        </li>
+      </ul>
+    </div>
+    <div class="pages col-xs-9">
+      <div class="row">
+        <div class="col-xs-10">
+          <div class="page well">
+            {{outlet}}
+          </div>
+        </div>
+        <div class="extra col-xs-2">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
