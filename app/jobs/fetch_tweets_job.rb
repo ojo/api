@@ -1,7 +1,7 @@
 class FetchTweetsJob < ApplicationJob
   queue_as :default
 
-  TWEETS_PER_REQUEST = 200
+  TWEETS_PER_REQUEST = 20
   NUM_SECONDS_TO_WAIT = 0
 
   def perform(*args)
@@ -11,7 +11,6 @@ class FetchTweetsJob < ApplicationJob
         # of modifying the database. the state of the database alters the request
         # parameters of subsequent fetches
         save_tweets(fetch_new_tweets(a), a)
-        save_tweets(fetch_old_tweets(a), a)
       end
     end
   end
