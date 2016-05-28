@@ -2,19 +2,19 @@ source 'https://rubygems.org'
 
 
 gem 'bootstrap-datepicker-rails'
-gem "simple_calendar"
-gem 'recurring_select', git: 'git@github.com:briantigerchow/recurring_select.git', branch: 'patch-1'
-gem 'ice_cube'
 gem 'devise'
 gem 'haml'
+gem 'ice_cube'
 gem 'jbuilder', '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'omniauth'
 gem 'pg', '~> 0.18' # Use postgresql as the database for Active Record
 gem 'puma', '~> 3.0' # Use Puma as the app server
 gem 'rails', '>= 5.0.0.rc1', '< 5.1' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'recurring_select', git: 'git@github.com:briantigerchow/recurring_select.git', branch: 'patch-1'
 gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
+gem 'simple_calendar'
 gem 'sinatra', :require => nil, :git => 'git://github.com/sinatra/sinatra.git' # TODO(btc): use rubygems sinatra once bugfix is merged/released there (https://github.com/sinatra/sinatra/issues/1055)
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
