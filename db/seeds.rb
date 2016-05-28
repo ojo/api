@@ -9,3 +9,8 @@
 ManagedTwitterAccount.create(username: '961wefm')
 ManagedTwitterAccount.create(username: 'star947tt')
 ManagedTwitterAccount.create(username: 'briantigerchow')
+
+Station.create(name: 'Kaiso')
+Station.create(name: 'Music for Life')
+Station.create(name: 'STAR')
+Station.create(name: 'WEFM')

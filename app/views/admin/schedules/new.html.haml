@@ -3,15 +3,19 @@
 = form_tag(admin_schedules_path, method: :post, class: 'form-horizontal') do
   .col-md-6
     .form-group
-      = text_field('event', 'name', 
+      = text_field('program', 'name', 
         autofocus: true, class: 'form-control', placeholder: 'Untitled')
     .form-group
-      = text_field('event', 'start_date', class: 'bootstrap-datepicker form-control') #TODO rename
+      = select_tag "program[station_id]", 
+        options_from_collection_for_select(Station.all, 
+          "id", "name", params[:station_id])
     .form-group
-      = time_select 'event', 'start_time', minute_step: 15, ampm: true
-      = time_select 'event', 'end_time', minute_step: 15, ampm: true
+      = text_field('program', 'start_date', class: 'bootstrap-datepicker form-control') #TODO rename
     .form-group
-      = select_recurring 'event', 'recurrences', 
+      = time_select 'program', 'start_time', minute_step: 15, ampm: true
+      = time_select 'program', 'end_time', minute_step: 15, ampm: true
+    .form-group
+      = select_recurring 'program', 'recurrences', 
         [ IceCube::Rule.weekly.day(:monday, :tuesday, :wednesday, :thursday, :friday),
         IceCube::Rule.weekly.day(:saturday, :sunday),
         IceCube::Rule.weekly.day(:friday),
@@ -19,5 +23,5 @@
         IceCube::Rule.weekly.day(:sunday),
         ], allow_blank: true
     .form-group
-      = submit_tag 'save event'
+      = submit_tag 'save program'
 

@@ -3,7 +3,7 @@
 = params[:start_date]
 = week_calendar number_of_weeks: 1 do |date|
   = date.day
-  - Event.all.each do |e|
+  - Program.all.each do |e|
     - if e.schedule != nil and e.schedule.occurs_on? date
       .div
         = e.name

@@ -1,0 +1,10 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+wefm:
+  name: 96.1 WEFM
+
+star:
+  name: STAR 947
+
+mfl:
+  name: 107.7 Music For Life

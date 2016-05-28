@@ -11,23 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160524054958) do
+ActiveRecord::Schema.define(version: 20160525184347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "events", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text     "schedule"
-  end
 
   create_table "managed_twitter_accounts", force: :cascade do |t|
     t.string   "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["username"], name: "index_managed_twitter_accounts_on_username", unique: true, using: :btree
+  end
+
+  create_table "programs", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "schedule"
+    t.integer  "station_id"
+    t.index ["station_id"], name: "index_programs_on_station_id", using: :btree
+  end
+
+  create_table "stations", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_stations_on_name", unique: true, using: :btree
   end
 
   create_table "tweets", force: :cascade do |t|
@@ -62,5 +71,6 @@ ActiveRecord::Schema.define(version: 20160524054958) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
 
+  add_foreign_key "programs", "stations"
   add_foreign_key "tweets", "managed_twitter_accounts"
 end

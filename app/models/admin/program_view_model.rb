@@ -1,11 +1,11 @@
-class Admin::EventViewModel
+class Admin::ProgramViewModel
   include ActiveModel::Model # for easy instantiation with params
   include ActiveModel::Validations # for validations
   include MultiparameterAttributeAssignment
 
-  PUBLIC_ACCESSORS = [:name, :start_date, :start_time, :end_time, :recurrences]
+  PUBLIC_ACCESSORS = [:name, :start_date, :start_time, :end_time, :station_id, :recurrences]
 
-  validates_presence_of :name, :start_date, :start_time, :end_time
+  validates_presence_of :name, :start_date, :start_time, :end_time, :station_id
 
   validates_each :start_date do |r, attr, val|
     dmy = /\d{2}\/\d{2}\/\d{4}$/
@@ -13,13 +13,25 @@ class Admin::EventViewModel
   end
 
   validates_each :recurrences do |r, attr, val|
+    if val == 'null'
+      val = nil
+    end
     if val != nil
+      puts val
       is_rule = RecurringSelect.is_valid_rule?(val)
       r.errors.add(attr, 'invalid') unless is_rule
     end
   end
 
   attr_accessor *PUBLIC_ACCESSORS
+
+  def to_program
+    Program.new.tap do |e|
+      e.name = self.name
+      e.station_id = self.station_id
+      e.schedule = self.to_ice_cube
+    end
+  end
 
   def to_ice_cube
     sdate = Date.strptime(self.start_date, '%m/%d/%Y')

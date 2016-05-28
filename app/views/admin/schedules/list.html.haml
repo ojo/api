@@ -5,8 +5,11 @@
     %th.span1 name
     %th.span1 start
     %th.span1 recurrences
-  - Event.all.each do |e|
+    %th.span1
+      -# destroy
+  - @programs.each do |p|
     %tr
-      %td= e.name
-      %td= time_tag e.schedule.start_time
-      %td= e.schedule
+      %td= p.name
+      %td= time_tag p.schedule.start_time
+      %td= p.schedule
+      %td TODO destroy
