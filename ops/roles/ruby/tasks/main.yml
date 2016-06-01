@@ -27,3 +27,5 @@
     create: yes
 - shell: rbenv install 2.3.1 -s
 - shell: rbenv global 2.3.1
+- gem: name=bundler state=present include_doc=no
+- gem: name=pg state=present include_doc=no

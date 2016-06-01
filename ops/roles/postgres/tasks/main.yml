@@ -10,3 +10,5 @@
     create: yes
 - apt: update_cache=yes
 - apt: name=postgresql-9.5
+- apt: name=libpq-dev
+- apt: name=postgresql-server-dev-9.5
