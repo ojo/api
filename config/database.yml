@@ -78,10 +78,7 @@ test:
 # You can use this database configuration with:
 #
 #   production:
-#     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
   <<: *default
-  database: ttrn_production
-  username: ttrn
-  password: <%= ENV['TTRN_DATABASE_PASSWORD'] %>
+  url: <%= ENV['PROD_DATABASE_URL'] %>
