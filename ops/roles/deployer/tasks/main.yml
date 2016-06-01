@@ -1,0 +1,9 @@
+---
+- copy: src=deployer dest=/home/{{ansible_user_id}}/.ssh/id_rsa mode=0600
+- copy: src=deployer.pub dest=/home/{{ansible_user_id}}/.ssh/id_rsa.pub
+- file:
+    path: /var/www
+    state: directory
+    mode: 0770
+    owner: root
+    group: sudo

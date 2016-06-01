@@ -1,0 +1,4 @@
+---
+- hosts: standalone
+  roles:
+      - { role: deployer, become: yes, become_user: root }
