@@ -6,15 +6,19 @@
     install redis
     install ruby runtime
     install nginx and passenger
+    set up passenger nginx config
+    set up DB
+        https://github.com/dei79/capistrano-rails-collection
+        https://github.com/capistrano-plugins/capistrano-postgresql
+    set up capistrano
+        manage secrets/deploy secrets to server
 
 TODO
+    devise a long-term storage solution place for secrets
+        .env.production
+        deployer private key
+        postgres database password in ansible config
     deploy rails to server
-        set up passenger nginx config
-        set up DB
-            https://github.com/dei79/capistrano-rails-collection
-            https://github.com/capistrano-plugins/capistrano-postgresql
-        set up capistrano
-            manage secrets/deploy secrets to server
         install sidekiq
         manage sidekiq 
             https://github.com/mperham/sidekiq/blob/master/examples/upstart/workers.conf

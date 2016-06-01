@@ -4,6 +4,6 @@
 - file:
     path: /var/www
     state: directory
-    mode: 0770
+    mode: 0777
     owner: root
     group: sudo
