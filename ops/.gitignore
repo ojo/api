@@ -1,2 +1,2 @@
-app.retry
+*.retry
 roles/redis/files/*.tar.gz
