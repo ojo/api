@@ -1,0 +1,10 @@
+---
+- copy:
+    src: sidekiq.conf
+    dest: /etc/init/sidekiq.conf
+- copy:
+    src: workers.conf
+    dest: /etc/init/workers.conf
+- service:
+    name: workers
+    state: restarted

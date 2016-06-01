@@ -6,3 +6,4 @@
       - { role: passenger, become: yes, become_user: root }
       - redis
       - { role: postgres, become: yes, become_user: root }
+      - { role: sidekiq, become: yes, become_user: root }
