@@ -1,0 +1,19 @@
+    configure ansible
+    provision server
+    configure deploy user
+    copy ssh key
+    install postgres
+    install redis
+    install ruby runtime
+    install nginx and passenger
+TODO
+    deploy static BRB page with link to live streams
+    deploy rails to server
+        set up passenger nginx config
+        set up capistrano
+            manage secrets/deploy secrets to server
+        install sidekiq
+        manage sidekiq
+    deploy frontend
+        build frontend assets
+        deploy frontend assets to server
