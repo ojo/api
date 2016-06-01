@@ -16,6 +16,7 @@
 
 TODO
     set up ruby environment for sidekiq workers
+    set the minimum number of passenger processes to a value that prevents slow first request
     secure sidekiq admin interface
     secure the world-writable path
         allow deploys from capistrano user
