@@ -6,14 +6,27 @@
     install redis
     install ruby runtime
     install nginx and passenger
+
 TODO
-    deploy static BRB page with link to live streams
     deploy rails to server
         set up passenger nginx config
+        set up DB
+            https://github.com/dei79/capistrano-rails-collection
+            https://github.com/capistrano-plugins/capistrano-postgresql
         set up capistrano
             manage secrets/deploy secrets to server
         install sidekiq
-        manage sidekiq
+        manage sidekiq 
+            https://github.com/mperham/sidekiq/blob/master/examples/upstart/workers.conf
+        manage redis
     deploy frontend
         build frontend assets
         deploy frontend assets to server
+    deploy static BRB page with link to live streams
+
+
+LATER
+500 page
+400 page
+404 page
+https://github.com/mydrive/capistrano-deploytags
