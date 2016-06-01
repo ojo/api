@@ -1,0 +1,37 @@
+---
+# - shell: sudo chmod o+x "/root"
+# - apt: name=libcurl4-openssl-dev
+# - gem: name=passenger include_doc=no
+# - shell: 'passenger-install-nginx-module --auto --auto-download --prefix=/opt/nginx'
+# - shell: 'passenger-config validate-install --auto'
+- apt: update_cache=yes
+- apt_key: 
+    keyserver: hkp://keyserver.ubuntu.com:80
+    id: 561F9B9CAC40B2F7
+- apt: name=apt-transport-https 
+- apt: name=ca-certificates
+- lineinfile: 
+    line: 'deb https://oss-binaries.phusionpassenger.com/apt/passenger trusty main'
+    backup: no 
+    dest: /etc/apt/sources.list.d/passenger.list
+    create: yes
+- apt: update_cache=yes
+- apt: name=nginx-extras 
+- apt: name=passenger
+- lineinfile: 
+    line: 'passenger_root /usr/lib/ruby/vendor_ruby/phusion_passenger/locations.ini;'
+    regexp: '# passenger_root'
+    backup: yes 
+    dest: /etc/nginx/nginx.conf
+    create: no
+    backrefs: yes
+- lineinfile: 
+    line: 'passenger_ruby /usr/bin/passenger_free_ruby;'
+    regexp: '# passenger_ruby'
+    backup: yes 
+    dest: /etc/nginx/nginx.conf
+    create: no
+    backrefs: yes
+- service:
+    name: nginx
+    state: restarted

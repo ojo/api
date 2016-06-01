@@ -1,0 +1,9 @@
+---
+- apt: name=build-essential
+- name: "create install dir"
+  file: path=/home/{{ansible_user_id}}/tmp/install/redis state=directory
+- unarchive: src=redis-3.2.0.tar.gz dest=/home/{{ansible_user_id}}/tmp/install/redis
+- make: chdir=/home/{{ansible_user_id}}/tmp/install/redis/redis-3.2.0
+- shell: sudo make install 
+  args:
+    chdir: /home/{{ansible_user_id}}/tmp/install/redis/redis-3.2.0

@@ -1,0 +1,12 @@
+---
+- apt: update_cache=yes
+- apt_key: 
+    url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+    state: present
+- lineinfile: 
+    line: 'deb http://apt.postgresql.org/pub/repos/apt/ trusty-pgdg main'
+    backup: no 
+    dest: /etc/apt/sources.list.d/pgdg.list
+    create: yes
+- apt: update_cache=yes
+- apt: name=postgresql-9.5
