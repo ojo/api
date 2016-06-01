@@ -27,6 +27,7 @@ end
 
 group :development do
   gem 'capistrano'
+  gem 'capistrano-bundler'
   gem 'foreman'
   gem 'guard'
   gem 'guard-minitest'
