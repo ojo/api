@@ -1,3 +1,6 @@
+update:
+	ansible-playbook playbooks/update.yml
+
 provision: roles/redis/files/redis-3.2.0.tar.gz
 	ansible-playbook provision.yml
 	
