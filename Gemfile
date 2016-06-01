@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 gem 'bootstrap-datepicker-rails'
 gem 'devise'
+gem 'dotenv-rails'
 gem 'haml'
 gem 'ice_cube'
 gem 'jbuilder', '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -22,7 +23,6 @@ gem 'with_advisory_lock'
 
 group :development, :test do
   gem 'byebug', platform: :mri # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'dotenv-rails'
 end
 
 group :development do
