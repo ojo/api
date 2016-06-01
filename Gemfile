@@ -26,12 +26,12 @@ group :development, :test do
 end
 
 group :development do
-  gem 'minitest-rails', git: 'git@github.com:blowmage/minitest-rails.git'
-  gem 'guard-minitest'
-  gem 'guard'
   gem 'foreman'
+  gem 'guard'
+  gem 'guard-minitest'
   gem 'haml-rails'
   gem 'listen', '~> 3.0.5'
+  gem 'minitest-rails', git: 'git@github.com:blowmage/minitest-rails.git'
   gem 'spring' # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console' # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
