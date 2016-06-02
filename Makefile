@@ -5,3 +5,8 @@ test:
 
 run:
 	bundle exec foreman start
+
+update:
+	ansible-playbook ops/playbooks/update.yml
+	ansible-playbook ops/playbooks/init_postgresql_db.yml
+
