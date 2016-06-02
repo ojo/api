@@ -30,6 +30,9 @@
 - copy:
     src: ttrn.conf
     dest: /etc/nginx/sites-enabled/ttrn.conf
+- copy:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
 - service:
     name: nginx
     state: restarted
