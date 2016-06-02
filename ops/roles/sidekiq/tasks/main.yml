@@ -2,7 +2,6 @@
 - copy:
     src: sidekiq.conf
     dest: /etc/init/sidekiq.conf
-- copy:
-    src: workers.conf
-    dest: /etc/init/workers.conf
-# don't start the service. directory won't be available until deploy
+
+# don't start the service into first deploy. directory won't be available until
+# deploy. service start is handled in capistrano task.
