@@ -15,14 +15,10 @@
     start redis server
 
 TODO
-    extract host variable from nginx config
-    explicitly pass nodejs path to passenger config
-    set up ruby environment for sidekiq workers
-    set the minimum number of passenger processes to a value that prevents slow first request
-    secure sidekiq admin interface
+    harden sidekiq starting and stopping
+
     secure the world-writable path
-        allow deploys from capistrano user
-        and nginx/passenger worker
+        while allowing deploys from ** capistrano user and ** nginx/passenger worker
 
     devise a long-term storage solution place for secrets
         .env.production
@@ -38,6 +34,8 @@ TODO
         deploy frontend assets to server
     deploy static BRB page with link to live streams
 
+    secure sidekiq admin interface
+    extract host variable from nginx config
 
 LATER
 500 page
