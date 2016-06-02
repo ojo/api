@@ -1,8 +1,8 @@
 HeartbeatJob:
     cron: "*/30 * * * * *"
 
-# FetchTweetsJob:
-#     cron: "*/10 * * * * *"
+FetchTweetsJob:
+    cron: "*/10 * * * * *"
 
-# FetchTweetEmbedsJob:
-#     cron: "*/10 * * * * *"
+FetchTweetEmbedsJob:
+    cron: "*/10 * * * * *"
