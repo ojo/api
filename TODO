@@ -13,22 +13,18 @@
     set up capistrano
         manage secrets/deploy secrets to server
     start redis server
-
-TODO
     harden sidekiq starting and stopping
-
     secure the world-writable path
         while allowing deploys from ** capistrano user and ** nginx/passenger worker
-
     devise a long-term storage solution place for secrets
-        .env.production
-        deployer private key
-        postgres database password in ansible config
+        X deployer private key
+        X postgres database password in ansible config
     deploy rails to server
         install sidekiq
         manage sidekiq 
             https://github.com/mperham/sidekiq/blob/master/examples/upstart/workers.conf
         manage redis
+TODO
     deploy frontend
         build frontend assets
         deploy frontend assets to server
@@ -38,7 +34,10 @@ TODO
     extract host variable from nginx config
 
 LATER
-500 page
-400 page
-404 page
-https://github.com/mydrive/capistrano-deploytags
+    500 page
+    400 page
+    404 page
+    https://github.com/mydrive/capistrano-deploytags
+    https://github.com/heroku/rails_12factor
+    devise a long-term storage solution place for secrets
+        .env.production
