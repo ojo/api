@@ -1,9 +1,4 @@
 ---
-# - shell: sudo chmod o+x "/root"
-# - apt: name=libcurl4-openssl-dev
-# - gem: name=passenger include_doc=no
-# - shell: 'passenger-install-nginx-module --auto --auto-download --prefix=/opt/nginx'
-# - shell: 'passenger-config validate-install --auto'
 - apt: update_cache=yes
 - apt_key: 
     keyserver: hkp://keyserver.ubuntu.com:80
