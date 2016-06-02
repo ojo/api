@@ -5,6 +5,4 @@
 - copy:
     src: workers.conf
     dest: /etc/init/workers.conf
-- service:
-    name: workers
-    state: restarted
+# don't start the service. directory won't be available until deploy
