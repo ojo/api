@@ -32,10 +32,10 @@
 = render 'admin/sidebar'
 
 .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
-  = if notice != nil
-    .notice= notice
-  = if alert != nil
-    .alert= alert
+  - if notice != nil
+    .alert.alert-info= notice
+  - if alert != nil
+    .alert.alert-warning= alert
   = yield
 </div>
 </div>
