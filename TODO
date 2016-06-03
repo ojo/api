@@ -24,7 +24,10 @@
         manage sidekiq 
             https://github.com/mperham/sidekiq/blob/master/examples/upstart/workers.conf
         manage redis
+
 TODO
+    manage stations
+    manage users
     deploy frontend
         build frontend assets
         deploy frontend assets to server
