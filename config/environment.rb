@@ -9,7 +9,7 @@ ActionMailer::Base.smtp_settings = {
   :password => ENV.fetch('SENDGRID_PASSWORD'),
   :domain => 'ttrn.org',
   :address => 'smtp.sendgrid.net',
-  :port => 2525,
+  :port => 2525, # required for GCE: https://cloud.google.com/compute/docs/tutorials/sending-mail/using-sendgrid
   :authentication => :plain,
   :enable_starttls_auto => true
 }
