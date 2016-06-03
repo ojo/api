@@ -41,3 +41,5 @@ LATER
     https://github.com/heroku/rails_12factor
     devise a long-term storage solution place for secrets
         .env.production
+    front-end rack miniprofiler
+        https://github.com/MiniProfiler/rack-mini-profiler

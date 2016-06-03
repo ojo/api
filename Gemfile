@@ -19,8 +19,14 @@ gem 'sidekiq-scheduler'
 gem 'simple_calendar'
 gem 'sinatra', :require => nil, :git => 'git://github.com/sinatra/sinatra.git' # TODO(btc): use rubygems sinatra once bugfix is merged/released there (https://github.com/sinatra/sinatra/issues/1055)
 gem 'twitter'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 gem 'with_advisory_lock'
+
+# NOTE: Be sure to require rack_mini_profiler below the pg and mysql gems in
+# your Gemfile. rack_mini_profiler will identify these gems if they are loaded
+# to insert instrumentation. If included too early no SQL will show up.
+gem 'rack-mini-profiler'
 
 group :development, :test do
   gem 'byebug', platform: :mri # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,8 +49,6 @@ group :development do
   gem 'web-console' # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

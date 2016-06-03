@@ -219,6 +219,8 @@ GEM
     puma (3.4.0)
     rack (2.0.0.rc1)
       json
+    rack-mini-profiler (0.10.1)
+      rack (>= 1.2.0)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -361,6 +363,7 @@ DEPENDENCIES
   omniauth
   pg (~> 0.18)
   puma (~> 3.0)
+  rack-mini-profiler
   rails (>= 5.0.0.rc1, < 5.1)
   rails-assets-bootstrap!
   rails-assets-jquery!

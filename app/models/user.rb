@@ -3,4 +3,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :lockable, :timeoutable
+
+  def is_admin?
+    # TODO
+    self.email == 'brian.holderchow@gmail.com'
+  end
 end
