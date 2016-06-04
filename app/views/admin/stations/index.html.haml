@@ -1,0 +1,22 @@
+%h1 Listing stations
+
+= link_to 'New Station', new_admin_station_path
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th
+      %th
+      %th
+
+  %tbody
+    - @stations.each do |station|
+      %tr
+        %td= station.name
+        %td= link_to 'Show', [:admin, station]
+        %td= link_to 'Edit', edit_admin_station_path(station)
+        %td= button_to 'Destroy', admin_station_path(station), :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
