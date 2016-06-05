@@ -1,5 +1,7 @@
 require 'sidekiq/scheduler'
 
+# require these two to get a recurring jobs section in the sidekiq admin
+# dashboard
 require 'sidekiq/web'
 require 'sidekiq-scheduler/web'
 
