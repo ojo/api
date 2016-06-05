@@ -1,0 +1,57 @@
+#!/usr/bin/env ruby
+
+class Dsl
+  def initialize
+    @group_data = {}
+    @current_groups = {}
+  end
+
+  def group *groups, &block
+    @current_groups = groups
+    yield
+  end
+
+  def env key, value
+    @current_groups.each do |g|
+      if @group_data[g] == nil
+        @group_data[g] = []
+      end
+      @group_data[g] << { key => value }
+    end
+  end
+
+  def run
+    path = File.expand_path("Envfile")
+    f = File.open(path, "rb", &:read)
+    instance_eval(f, path, 1)
+  end
+
+  def write
+    @group_data.each do |group, pairs|
+      str = ""
+      pairs.each do |h|
+        h.each do |k, v|
+          str << "#{k}=\"#{v}\"\n"
+        end
+      end
+      fname = ".env.#{group}"
+      if File.exist?(fname) 
+        print "#{fname} exists. overwrite? (y,n): "
+        unless /(Y|y)((E|e)(s|S))?/.match gets
+          next
+        end
+        puts "#{fname} overwritten"
+      end
+      f = File.open(fname, "w")
+      f.puts str
+      f.close
+    end
+  end
+
+end
+
+if __FILE__ == $PROGRAM_NAME
+  dsl = Dsl.new
+  dsl.run
+  dsl.write
+end

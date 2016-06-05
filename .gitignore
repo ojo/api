@@ -16,8 +16,8 @@
 # Ignore Byebug command history file.
 .byebug_history
 
-.env
-.env.production
+Envfile
+.env*
 .ruby-gemset
 .ruby-version
 
