@@ -36,7 +36,7 @@ class Dsl
       end
       fname = ".env.#{group}"
       if File.exist?(fname) 
-        print "#{fname} exists. overwrite? (y,n): "
+        print "#{fname} exists. overwrite? (y/n) "
         unless /(Y|y)((E|e)(s|S))?/.match gets
           next
         end
