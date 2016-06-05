@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :managed_twitter_accounts, only: :create
 
+    resources :users
     resources :stations
 
     get 'socialmedia', to: 'social_media_management#index'
