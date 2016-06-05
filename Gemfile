@@ -6,6 +6,7 @@ gem 'devise'
 gem 'dotenv-rails'
 gem 'haml'
 gem 'ice_cube'
+gem 'instagram'
 gem 'jbuilder', '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'omniauth'
 gem 'pg', '~> 0.18' # Use postgresql as the database for Active Record

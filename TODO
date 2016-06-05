@@ -46,6 +46,8 @@ TODO
         let programs have descriptions
         let users edit programs
         delete programs
+        "until"
+        exceptions
     deploy frontend
         build frontend assets
         deploy frontend assets to server

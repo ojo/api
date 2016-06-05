@@ -6,3 +6,6 @@ FetchTweetsJob:
 
 FetchTweetEmbedsJob:
     cron: "*/10 * * * * *"
+
+FetchInstagramsJob:
+    cron: "*/10 * * * * *"

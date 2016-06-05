@@ -11,16 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525184347) do
+ActiveRecord::Schema.define(version: 20160605180358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "instagram_posts", force: :cascade do |t|
+    t.json     "data"
+    t.integer  "managed_instagram_account_id"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.string   "instagram_id"
+    t.index ["managed_instagram_account_id"], name: "index_instagram_posts_on_managed_instagram_account_id", using: :btree
+  end
+
+  create_table "managed_instagram_accounts", force: :cascade do |t|
+    t.string   "username"
+    t.string   "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "managed_twitter_accounts", force: :cascade do |t|
     t.string   "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["username"], name: "index_managed_twitter_accounts_on_username", unique: true, using: :btree
+  end
+
+  create_table "news_feed_items", force: :cascade do |t|
+    t.integer  "subject_id",   null: false
+    t.string   "subject_type", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["subject_id"], name: "index_news_feed_items_on_subject_id", using: :btree
+    t.index ["subject_type"], name: "index_news_feed_items_on_subject_type", using: :btree
   end
 
   create_table "programs", force: :cascade do |t|
@@ -71,6 +96,7 @@ ActiveRecord::Schema.define(version: 20160525184347) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
 
+  add_foreign_key "instagram_posts", "managed_instagram_accounts"
   add_foreign_key "programs", "stations"
   add_foreign_key "tweets", "managed_twitter_accounts"
 end

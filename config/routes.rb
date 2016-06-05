@@ -8,12 +8,15 @@ Rails.application.routes.draw do
     resources :users
     resources :stations
 
-    get 'socialmedia', to: 'social_media_management#index'
     get 'schedule', to: 'schedules#index'
     get 'schedule/new', to: 'schedules#new'
     get 'schedule/list', to: 'schedules#list'
 
     resources :schedules, only: [:create]
+
+    get 'socialmedia', to: 'social_media_management#index'
+    get 'socialmedia/instagram_oauth_connect', to: 'social_media_management#instagram_oauth_connect'
+    get 'socialmedia/instagram_oauth_callback', to: 'social_media_management#instagram_oauth_callback'
   end
   if Rails.env.development?
     authenticate :user do

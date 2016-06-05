@@ -14,4 +14,22 @@
         %td= a.latest_tweet_has_embed
   = form_for [:admin, ManagedTwitterAccount.new], html: { class: 'form-inline' } do |f|
     = f.text_field :username, placeholder: 'add twitter account', class: 'form-control'
-    = f.submit class: 'btn btn-primary'
+    = f.submit class: 'btn btn-info'
+
+.col-md-6
+  %h1{display: 'run-in' } Instagram
+  %p #{InstagramPost.count} posts indexed
+  %table.table.table-striped
+    %tr
+      %th.span1 username
+      %th.span1 authorized
+      %th.span1 # posts fetched
+    - ManagedInstagramAccount.order(username: :asc).all.each do |a|
+      %tr
+        %td
+          = link_to a.username, "https://instagram.com/#{a.username}"
+        - if a.token != nil
+          %td yes
+        %td
+          = a.instagram_posts.count
+  = link_to 'Add Instagram Account', admin_socialmedia_instagram_oauth_connect_path, class: 'btn btn-info'
