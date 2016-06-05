@@ -42,7 +42,7 @@ group :development do
   gem 'guard'
   gem 'guard-minitest'
   gem 'haml-rails'
-  gem 'listen', '~> 3.0.5'
+  gem 'listen'
   gem 'minitest-rails', git: 'git@github.com:blowmage/minitest-rails.git'
   gem 'spring' # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring-watcher-listen', '~> 2.0.0'
