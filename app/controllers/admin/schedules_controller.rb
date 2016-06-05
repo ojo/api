@@ -2,6 +2,8 @@ class Admin::SchedulesController < ApplicationController
   layout "bootstrap"
 
   def index
+    @programs = Program.all.sort_by { |p| p.schedule.start_time }
+    @start_date = params[:start_date] ? Date.strptime(params[:start_date]) : Date.today
   end
 
   def users

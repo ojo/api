@@ -21,13 +21,31 @@
         X postgres database password in ansible config
     deploy rails to server
         install sidekiq
-        manage sidekiq 
+        manage sidekiq
             https://github.com/mperham/sidekiq/blob/master/examples/upstart/workers.conf
         manage redis
+    calendar
+        highlight today
+        include button to jump to today
 
 TODO
+    make sure _ is healthy
+        sidekiq
+        redis
+        postgres
+        passenger/nginx
+        hardware
+            disk space
+            memory usage
+            CPU usage
+
     manage stations
     manage users
+    allow users to upload photos for programs
+    schedules
+        let programs have descriptions
+        let users edit programs
+        delete programs
     deploy frontend
         build frontend assets
         deploy frontend assets to server
@@ -37,6 +55,7 @@ TODO
     extract host variable from nginx config
 
 LATER
+    advertisements
     500 page
     400 page
     404 page

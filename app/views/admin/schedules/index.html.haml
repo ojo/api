@@ -1,9 +1,18 @@
 = render 'admin/schedules/tabs'
 
-= params[:start_date]
-= week_calendar number_of_weeks: 1 do |date|
-  = date.day
-  - Program.all.each do |e|
+.btn-group
+  = link_to 'Today', admin_schedule_path(start_date: Date.today), class: 'btn btn-primary'
+= week_calendar number_of_weeks: 2 do |date|
+
+  - if date == Date.today
+    %strong
+      = "#{date.day}/#{date.month}"
+  - else
+    = "#{date.day}/#{date.month}"
+
+  <br>
+  - @programs.each do |e|
     - if e.schedule != nil and e.schedule.occurs_on? date
-      .div
+      %small
         = e.name
+      <br>
