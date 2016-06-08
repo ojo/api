@@ -32,6 +32,7 @@ Rails.application.routes.draw do
 
   scope '/api' do
     get 'auth/new'
+    post '/now-playing', to: 'now_playing#create'
   end
 
   root to: 'home#index'
