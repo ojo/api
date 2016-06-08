@@ -13,6 +13,7 @@ gem 'pg', '~> 0.18' # Use postgresql as the database for Active Record
 gem 'puma', '~> 3.0' # Use Puma as the app server
 gem 'rails', '>= 5.0.0.rc1', '< 5.1' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'recurring_select', git: 'git@github.com:briantigerchow/recurring_select.git', branch: 'patch-1'
+gem 'redis'
 gem 'rollbar'
 gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
 gem 'sidekiq'
@@ -51,8 +52,6 @@ group :development do
 end
 
 
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment

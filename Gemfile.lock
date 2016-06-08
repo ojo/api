@@ -378,6 +378,7 @@ DEPENDENCIES
   rails-assets-bootstrap!
   rails-assets-jquery!
   recurring_select!
+  redis
   rollbar
   sass-rails (~> 5.0)
   sidekiq
