@@ -12,7 +12,7 @@ gem 'omniauth'
 gem 'pg', '~> 0.18' # Use postgresql as the database for Active Record
 gem 'puma', '~> 3.0' # Use Puma as the app server
 gem 'rails', '>= 5.0.0.rc1', '< 5.1' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'recurring_select', git: 'git@github.com:briantigerchow/recurring_select.git', branch: 'patch-1'
+gem 'recurring_select', git: 'git@github.com:briantigerchow/recurring_select.git', branch: 'patch-1-with-until'
 gem 'redis'
 gem 'rollbar'
 gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
@@ -60,5 +60,6 @@ end
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery'
+  gem 'rails-assets-jquery-ui'
   gem 'rails-assets-bootstrap'
 end
