@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: git@github.com:briantigerchow/recurring_select.git
-  revision: bbc0f04eee8bcbd130cad3208ae00760b8e4c56c
+  revision: bbc430b7c378ecc43a7a1c692e1790cad7170cfd
   branch: patch-1-with-until
   specs:
     recurring_select (2.0.0)
