@@ -12,4 +12,4 @@
       %td= p.name
       %td= time_tag p.schedule.start_time
       %td= p.schedule
-      %td TODO destroy
+      %td= button_to 'delete', [:admin, p], method: :delete, class: 'btn btn-danger'

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
     resources :users
     resources :stations
+    resources :programs, only: [:destroy]
 
     get 'schedule', to: 'schedules#index'
     get 'schedule/new', to: 'schedules#new'
