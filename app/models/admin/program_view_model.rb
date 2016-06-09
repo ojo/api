@@ -1,6 +1,7 @@
 class Admin::ProgramViewModel
   include ActiveModel::Model # for easy instantiation with params
   include ActiveModel::Validations # for validations
+  include ActiveModel::Validations::Callbacks
   include MultiparameterAttributeAssignment
 
   PUBLIC_ACCESSORS = [:name, :start_date, :start_time, :end_time, :station_id, :recurrences]
@@ -12,12 +13,12 @@ class Admin::ProgramViewModel
     r.errors.add(attr, 'invalid') unless dmy.match(val)
   end
 
+  before_validation do
+    self.recurrences = nil if self.recurrences == 'null'
+  end
+
   validates_each :recurrences do |r, attr, val|
-    if val == 'null'
-      val = nil
-    end
     if val != nil
-      puts val
       is_rule = RecurringSelect.is_valid_rule?(val)
       r.errors.add(attr, 'invalid') unless is_rule
     end
