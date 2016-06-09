@@ -18,8 +18,8 @@ GIT
 
 GIT
   remote: git@github.com:briantigerchow/recurring_select.git
-  revision: bbc430b7c378ecc43a7a1c692e1790cad7170cfd
-  branch: patch-1-with-until
+  revision: 2d72656e8017c40aa8a1a95759862675266d7131
+  ref: 2d72656e8017c40aa8a1a95759862675266d7131
   specs:
     recurring_select (2.0.0)
       coffee-rails (>= 3.1)
