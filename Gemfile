@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0' # Build JSON APIs with ease. Read more: https://github.
 gem 'omniauth'
 gem 'pg', '~> 0.18' # Use postgresql as the database for Active Record
 gem 'puma', '~> 3.0' # Use Puma as the app server
+gem 'rack-cors', :require => 'rack/cors'
 gem 'rails', '>= 5.0.0.rc1', '< 5.1' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'recurring_select', git: 'git@github.com:briantigerchow/recurring_select.git', ref: '2d72656e8017c40aa8a1a95759862675266d7131'
 gem 'redis'
