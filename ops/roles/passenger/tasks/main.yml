@@ -33,6 +33,8 @@
 - copy:
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
+  tags: conf
 - service:
     name: nginx
     state: restarted
+  tags: conf
