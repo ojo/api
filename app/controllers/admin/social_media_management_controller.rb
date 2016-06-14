@@ -4,6 +4,7 @@ class Admin::SocialMediaManagementController < ApplicationController
   respond_to :html
 
   def index
+    @num_tweets = params[:num_tweets] ? params[:num_tweets] : 10
   end
 
   def instagram_oauth_callback

@@ -22,7 +22,8 @@
     = f.submit class: 'btn btn-info'
 
   %h1{display: 'run-in' } Tweets
-  - Tweet.order(twitter_id: :desc).all.each do |t|
+  %p= "(the last #{@num_tweets})"
+  - Tweet.order(twitter_id: :desc).limit(@num_tweets).all.each do |t|
     .tweet
       = t.embed.html_safe
 
