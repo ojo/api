@@ -2,7 +2,12 @@
 
 class Dsl
   def initialize
+
+    # for each group (i.e. prod, test, dev, etc.), there is a list of hashes
+    # (key-value pairs)
+    # FIXME: store a single hash for each group to prevent duplicate keys
     @group_data = {}
+
     @current_groups = {}
   end
 
@@ -24,6 +29,10 @@ class Dsl
     path = File.expand_path("Envfile")
     f = File.open(path, "rb", &:read)
     instance_eval(f, path, 1)
+
+    @group_data.each do |group, pairs|
+      pairs.sort_by!{|hash|hash.keys[0]}
+    end
   end
 
   def write
