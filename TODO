@@ -29,6 +29,27 @@
         include button to jump to today
 
 TODO
+    news feed
+        Gemfile: gem 'active_model_serializers'
+        app/models/timeline.rb
+            index
+            all
+        app/serializers/instagram_post_serializer.rb
+        app/serializers/tweet_serializer.rb
+        app/serializers/timeline_item_serializer.rb
+            copy it
+            id
+                "#{subject_type}-#{subject_id}"
+            type
+                object.subject_type.downcase
+        app/models/timeline_item.rb
+            posted_at abstraction
+            polymorphic relationship
+        app/controllers/timeline_items_controller.rb
+        app/jobs/refresh_timeline_job.rb
+        config/routes.rb: resources :timeline_item
+        app/serializers/tweet_serializer.rb
+            copy it
     make sure _ is healthy
         sidekiq
         redis
