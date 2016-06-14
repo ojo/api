@@ -15,10 +15,7 @@
         %td #{a.tweets.where.not(embed: nil).count} (#{a.tweets.count})
         %td= a.latest_tweet_has_embed
         %td
-          - if a.published
-            = form_for_toggle [:admin, a], :published, false, 'Unpublish'
-          - else
-            = form_for_toggle [:admin, a], :published, true, 'Publish'
+          = form_for_published_toggle [:admin, a]
 
   = form_for [:admin, ManagedTwitterAccount.new], html: { class: 'form-inline' } do |f|
     = f.text_field :username, placeholder: 'add twitter account', class: 'form-control'
@@ -49,9 +46,6 @@
         %td
           = a.instagram_posts.count
         %td
-          - if a.published
-            = form_for_toggle [:admin, a], :published, false, 'Unpublish'
-          - else
-            = form_for_toggle [:admin, a], :published, true, 'Publish'
+          = form_for_published_toggle [:admin, a]
 
   = link_to 'Add Instagram Account', admin_socialmedia_instagram_oauth_connect_path, class: 'btn btn-info'
