@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605180358) do
+ActiveRecord::Schema.define(version: 20160614012213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,12 +30,14 @@ ActiveRecord::Schema.define(version: 20160605180358) do
     t.string   "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "published"
   end
 
   create_table "managed_twitter_accounts", force: :cascade do |t|
     t.string   "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "published"
     t.index ["username"], name: "index_managed_twitter_accounts_on_username", unique: true, using: :btree
   end
 

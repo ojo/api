@@ -6,15 +6,24 @@
       %th.span1 username
       %th.span1 # embeds fetched (# tweets)
       %th.span1 latest tweet has embed
+      %th.span1 published
+
     - ManagedTwitterAccount.order(username: :asc).all.each do |a|
       %tr
         %td
           = link_to a.username, "https://twitter.com/#{a.username}"
         %td #{a.tweets.where.not(embed: nil).count} (#{a.tweets.count})
         %td= a.latest_tweet_has_embed
+        %td
+          - if a.published
+            = form_for_toggle [:admin, a], :published, false, 'Unpublish'
+          - else
+            = form_for_toggle [:admin, a], :published, true, 'Publish'
+
   = form_for [:admin, ManagedTwitterAccount.new], html: { class: 'form-inline' } do |f|
     = f.text_field :username, placeholder: 'add twitter account', class: 'form-control'
     = f.submit class: 'btn btn-info'
+
   %h1{display: 'run-in' } Tweets
   - Tweet.order(twitter_id: :desc).all.each do |t|
     .tweet
@@ -28,12 +37,21 @@
       %th.span1 username
       %th.span1 authorized
       %th.span1 # posts fetched
+      %th.span1 published
+
     - ManagedInstagramAccount.order(username: :asc).all.each do |a|
       %tr
         %td
           = link_to a.username, "https://instagram.com/#{a.username}"
-        - if a.token != nil
-          %td yes
+        %td
+          - if a.token != nil
+            yes
         %td
           = a.instagram_posts.count
+        %td
+          - if a.published
+            = form_for_toggle [:admin, a], :published, false, 'Unpublish'
+          - else
+            = form_for_toggle [:admin, a], :published, true, 'Publish'
+
   = link_to 'Add Instagram Account', admin_socialmedia_instagram_oauth_connect_path, class: 'btn btn-info'

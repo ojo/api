@@ -3,17 +3,17 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
 
   namespace :admin do
-    resources :managed_twitter_accounts, only: :create
 
+    resources :managed_twitter_accounts, only: [:create, :update]
     resources :users
     resources :stations
+    resources :managed_instagram_accounts, only: :update
     resources :programs, only: [:destroy]
+    resources :schedules, only: [:create]
 
     get 'schedule', to: 'schedules#index'
     get 'schedule/new', to: 'schedules#new'
     get 'schedule/list', to: 'schedules#list'
-
-    resources :schedules, only: [:create]
 
     get 'socialmedia', to: 'social_media_management#index'
     get 'socialmedia/instagram_oauth_connect', to: 'social_media_management#instagram_oauth_connect'
