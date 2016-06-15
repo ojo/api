@@ -11,21 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614012213) do
+ActiveRecord::Schema.define(version: 20160614234547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "instagram_posts", force: :cascade do |t|
     t.json     "data"
-    t.integer  "managed_instagram_account_id"
+    t.bigint   "managed_instagram_account_id"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.string   "instagram_id"
+    t.index ["instagram_id"], name: "index_instagram_posts_on_instagram_id", unique: true, using: :btree
     t.index ["managed_instagram_account_id"], name: "index_instagram_posts_on_managed_instagram_account_id", using: :btree
   end
 
-  create_table "managed_instagram_accounts", force: :cascade do |t|
+  create_table "managed_instagram_accounts", id: :bigserial, force: :cascade do |t|
     t.string   "username"
     t.string   "token"
     t.datetime "created_at", null: false
@@ -39,15 +40,6 @@ ActiveRecord::Schema.define(version: 20160614012213) do
     t.datetime "updated_at", null: false
     t.boolean  "published"
     t.index ["username"], name: "index_managed_twitter_accounts_on_username", unique: true, using: :btree
-  end
-
-  create_table "news_feed_items", force: :cascade do |t|
-    t.integer  "subject_id",   null: false
-    t.string   "subject_type", null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["subject_id"], name: "index_news_feed_items_on_subject_id", using: :btree
-    t.index ["subject_type"], name: "index_news_feed_items_on_subject_type", using: :btree
   end
 
   create_table "programs", force: :cascade do |t|
