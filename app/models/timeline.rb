@@ -21,11 +21,10 @@ class Timeline
     $redis.zremrangebyrank(name_of_live_index, 0, -1)
   end
 
-  def self.all
-    gids = $redis.zrevrange(name_of_live_index, 0, -1)
-    gids.map do |gid|
-      GlobalID::Locator.locate gid
-    end
+  def self.all opts={}
+    limit = opts[:limit] || -1
+    gids = $redis.zrevrange(name_of_live_index, 0, limit)
+    GlobalID::Locator.locate_many gids
   end
 
   private
