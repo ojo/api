@@ -9,3 +9,6 @@ FetchTweetEmbedsJob:
 
 FetchInstagramsJob:
     cron: "*/30 * * * * *"
+
+RefreshTimelineJob:
+    cron: "*/10 * * * * *"
