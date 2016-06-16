@@ -49,7 +49,8 @@ class Timeline
   end
 
   def self.next_index curr
-    { A: 'B', B: 'A' }[curr]
+    return 'B' if curr == 'A'
+    return 'A' if curr == 'B' or curr == ''
   end
 
   def self._index_offline active_record_relation, &block
