@@ -1,7 +1,7 @@
 class Timeline
   # in test env, change the name of the set to something else
-  REDIS_ZSET_PREFIX = self.class.name
-  REDIS_INDEX_KEY = "#{self.class.name}-live-index"
+  REDIS_ZSET_PREFIX = self.name
+  REDIS_INDEX_KEY = "#{self.name}-live-index"
 
   def self.index
     clear_offline_index
