@@ -1,5 +1,4 @@
-class Admin::SocialMediaManagementController < ApplicationController
-  layout 'bootstrap'
+class Admin::SocialMediaManagementController < Admin::BaseController 
 
   respond_to :html
 

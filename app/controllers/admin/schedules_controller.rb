@@ -1,5 +1,4 @@
-class Admin::SchedulesController < ApplicationController
-  layout "bootstrap"
+class Admin::SchedulesController < Admin::BaseController 
 
   def index
     @programs = Program.all.sort_by { |p| p.schedule.start_time }

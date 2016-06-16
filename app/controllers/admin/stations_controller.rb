@@ -1,5 +1,4 @@
-class Admin::StationsController < ApplicationController
-  layout 'bootstrap'
+class Admin::StationsController < Admin::BaseController
 
   before_action :set_station, only: [:show, :edit, :update, :destroy]
 

@@ -1,5 +1,4 @@
-class Admin::UsersController < ApplicationController
-  layout 'bootstrap'
+class Admin::UsersController < Admin::BaseController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
