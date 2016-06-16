@@ -1,33 +1,64 @@
 class Timeline
   # in test env, change the name of the set to something else
-  NAME_OF_SET = self.class.name
+  REDIS_ZSET_PREFIX = self.class.name
+  REDIS_INDEX_KEY = "#{self.class.name}-live-index"
 
-  def self.index name=NAME_OF_SET
-    self._index Tweet do |i|
+  def self.index
+    clear_offline_index
+
+    self._index_offline Tweet.published do |i|
       i.posted_at
     end
-    self._index InstagramPost do |i|
+    self._index_offline InstagramPost.published do |i|
       i.posted_at
     end
-    return nil
+
+    swap_indices
   end
 
   def self.clear
-    $redis.zremrangebyrank(NAME_OF_SET, 0, -1)
+    $redis.zremrangebyrank(name_of_offline_index, 0, -1)
+    $redis.zremrangebyrank(name_of_live_index, 0, -1)
   end
 
-  def self.all name=NAME_OF_SET
-    gids = $redis.zrevrange(NAME_OF_SET, 0, -1)
+  def self.all
+    gids = $redis.zrevrange(name_of_live_index, 0, -1)
     gids.map do |gid|
       GlobalID::Locator.locate gid
     end
   end
 
   private
-  def self._index model_class, &block
-    model_class.all.each do |instance|
+
+  def self.swap_indices
+    curr = $redis.get(REDIS_INDEX_KEY)
+    $redis.set(REDIS_INDEX_KEY, next_index(curr))
+  end
+
+  def self.clear_offline_index
+    $redis.zremrangebyrank(name_of_offline_index, 0, -1)
+  end
+
+  def self.name_of_live_index
+    curr = $redis.get(REDIS_INDEX_KEY)
+    "#{REDIS_ZSET_PREFIX}-#{curr}"
+  end
+
+  def self.name_of_offline_index
+    curr = $redis.get(REDIS_INDEX_KEY)
+    "#{REDIS_ZSET_PREFIX}-#{next_index(curr)}"
+  end
+
+  def self.next_index curr
+    { A: 'B', B: 'A' }[curr]
+  end
+
+  def self._index_offline active_record_relation, &block
+    index = name_of_offline_index
+
+    active_record_relation.all.each do |instance|
       time = yield instance
-      $redis.zadd(NAME_OF_SET, time.to_i, instance.to_global_id.to_s)
+      $redis.zadd(index, time.to_i, instance.to_global_id.to_s)
     end
   end
 end
