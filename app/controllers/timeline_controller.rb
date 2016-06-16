@@ -3,9 +3,12 @@ class TimelineController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @items = Timeline.all.map do |i|
+    opts = {}
+    opts[:limit] = params[:limit].to_i if params[:limit]
+    subjects = Timeline.all opts
+    items = subjects.map do |i|
       TimelineItem.new(subject: i)
     end
-    render json: @items, include: 'subject'
+    render json: items, include: 'subject'
   end
 end

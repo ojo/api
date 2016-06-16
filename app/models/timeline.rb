@@ -22,7 +22,7 @@ class Timeline
   end
 
   def self.all opts={}
-    limit = opts[:limit] || -1
+    limit = opts[:limit] - 1 || -1
     gids = $redis.zrevrange(name_of_live_index, 0, limit)
     GlobalID::Locator.locate_many gids
   end
