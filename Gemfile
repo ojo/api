@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+gem 'active_model_serializers'
 gem 'bootstrap-datepicker-rails'
 gem 'devise'
 gem 'dotenv-rails'
