@@ -2,6 +2,12 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+  scope :api do
+    get 'timeline', to: 'timeline#index'
+    post '/now-playing', to: 'now_playing#create'
+    get 'auth/new'
+  end
+
   namespace :admin do
 
     resources :managed_twitter_accounts, only: [:create, :update]
@@ -30,11 +36,6 @@ Rails.application.routes.draw do
 
   get '/admin', to: 'admin#index'
   get 'admin/users', to: 'admin#users'
-
-  scope '/api' do
-    get 'auth/new'
-    post '/now-playing', to: 'now_playing#create'
-  end
 
   root to: 'home#index'
 
