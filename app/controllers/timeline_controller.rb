@@ -4,7 +4,7 @@ class TimelineController < ApplicationController
 
   def index
     opts = {}
-    opts[:limit] = params[:limit].to_i if params[:limit]
+    opts[:limit] = params[:limit].to_i if params[:limit] != nil
     subjects = Timeline.all opts
     items = subjects.map do |i|
       TimelineItem.new(subject: i)
