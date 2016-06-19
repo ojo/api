@@ -28,6 +28,14 @@ GIT
       rails (>= 3.2)
       sass-rails (>= 4.0)
 
+GIT
+  remote: git@github.com:excid3/simple_calendar.git
+  revision: 82fdea4d6fe2fa06205f0569fd02ab9127c8b178
+  branch: master
+  specs:
+    simple_calendar (2.1.5)
+      rails (>= 3.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -309,8 +317,6 @@ GEM
       rufus-scheduler (~> 3.1.8)
       sidekiq (>= 3)
       tilt (>= 1.4.0)
-    simple_calendar (2.1.5)
-      rails (>= 3.0)
     simple_oauth (0.3.1)
     slop (3.6.0)
     spring (1.7.1)
@@ -401,7 +407,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sidekiq
   sidekiq-scheduler
-  simple_calendar
+  simple_calendar!
   sinatra!
   spring
   spring-watcher-listen (~> 2.0.0)

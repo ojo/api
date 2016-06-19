@@ -20,7 +20,7 @@ gem 'rollbar'
 gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
-gem 'simple_calendar'
+gem 'simple_calendar', git: 'git@github.com:excid3/simple_calendar.git', branch: 'master'
 gem 'sinatra', :require => nil, :git => 'git://github.com/sinatra/sinatra.git' # TODO(btc): use rubygems sinatra once bugfix is merged/released there (https://github.com/sinatra/sinatra/issues/1055)
 gem 'twitter'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
