@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619073934) do
+ActiveRecord::Schema.define(version: 20160619233054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 20160619073934) do
     t.integer  "connection_count"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.index ["created_at"], name: "index_stream_metrics_on_created_at", using: :btree
+    t.index ["name"], name: "index_stream_metrics_on_name", using: :btree
   end
 
   create_table "tweets", force: :cascade do |t|
