@@ -13,5 +13,5 @@ FetchInstagramsJob:
 RefreshTimelineJob:
     cron: "*/10 * * * * *"
 
-FetchActiveListenersJob:
+FetchStreamMetricsJob:
     cron: "*/5 * * * * *"

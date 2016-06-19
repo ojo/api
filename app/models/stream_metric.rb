@@ -8,12 +8,14 @@ class StreamMetric < ApplicationRecord
     secs = opts[:secs] ? opts[:secs] : 60
     datetime = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone)
     range = datetime.advance(seconds: -secs)..datetime.advance(seconds: secs)
+
     b4 = self.where(created_at: range).where(name: name).where("created_at <= ?", datetime).order("created_at DESC").first
     after = self.where(created_at: range).where(name: name).where("created_at >= ?", datetime).order("created_at ASC").first
+
     return nil if b4 == nil and after == nil
     return b4 if after == nil
     return after if b4 == nil
-    closest = (datetime - b4.created_at).abs < (after.created_at - datetime).abs ? b4 : after
+    closest = (datetime - b4.created_at.to_datetime).abs < (after.created_at.to_datetime - datetime).abs ? b4 : after
     return closest
   end
 
