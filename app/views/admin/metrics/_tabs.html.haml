@@ -1,4 +1,6 @@
 %ul.nav.nav-tabs
+  %li{ class: current_page?(admin_metrics_index_path) && 'active' }
+    = link_to 'Overview', admin_metrics_index_path
   %li{ class: current_page?(admin_metrics_this_time_then_path) && 'active' }
     = link_to 'This Time Then', admin_metrics_this_time_then_path
   %li{ class: current_page?(admin_metrics_peak_times_path) && 'active' }

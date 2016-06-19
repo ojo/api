@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 
+gem 'chartkick'
+gem 'groupdate'
 gem 'active_model_serializers'
 gem 'bootstrap-datepicker-rails'
 gem 'devise'

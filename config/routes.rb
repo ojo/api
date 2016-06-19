@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
     get '/', to: 'metrics#ttt'
     get '/metrics/this-time-then', to: 'metrics#ttt'
+    get '/metrics/index', to: 'metrics#index'
     get '/metrics/peak-times', to: 'metrics#peak_times'
 
     get 'users', to: 'administrators#list'

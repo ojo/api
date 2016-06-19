@@ -1,6 +1,9 @@
 require 'maybe' # used in view
 
 class Admin::MetricsController < Admin::BaseController
+  def index
+
+  end
   def ttt
     @stream_metric_names = StreamMetric.names.sort
     @time = Time.now.in_time_zone
