@@ -17,7 +17,10 @@ Rails.application.routes.draw do
     resources :programs, only: [:destroy]
     resources :schedules, only: [:create]
 
-    get '/', to: 'overview#index', as: ''
+    get '/', to: 'metrics#ttt'
+    get '/metrics/this-time-then', to: 'metrics#ttt'
+    get '/metrics/peak-times', to: 'metrics#peak_times'
+
     get 'users', to: 'administrators#list'
     get 'schedule', to: 'schedules#index'
     get 'schedule/new', to: 'schedules#new'

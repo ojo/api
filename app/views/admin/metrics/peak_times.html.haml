@@ -1,0 +1,15 @@
+= render 'admin/metrics/tabs'
+
+- @stream_metric_names.each do |name|
+  %h1
+    = "Peak Times on #{name.upcase}"
+  = month_calendar(partial: 'admin/metrics/calendar') do |date|
+
+    - if date == Date.today # conditionally BOLD
+      %b= date.day
+    - else
+      = date.day
+    <br>
+
+    %h2
+      = Maybe.new(StreamMetric.peak(date, name: name)).created_at.strftime("%I:%M %p").__value__
