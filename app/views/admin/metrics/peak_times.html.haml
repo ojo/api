@@ -11,5 +11,7 @@
       = date.day
     <br>
 
+    - maybe_peak = Maybe.new(StreamMetric.peak(date, name: name))
     %h2
-      = Maybe.new(StreamMetric.peak(date, name: name)).created_at.strftime("%I:%M %p").__value__
+      = maybe_peak.created_at.strftime("%I:%M %p").__value__
+    = maybe_peak.connection_count.__value__
