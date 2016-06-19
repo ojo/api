@@ -6,6 +6,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'haml'
+gem 'httparty'
 gem 'ice_cube'
 gem 'instagram'
 gem 'jbuilder', '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

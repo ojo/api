@@ -172,6 +172,9 @@ GEM
       domain_name (~> 0.5)
     http-form_data (1.0.1)
     http_parser.rb (0.6.0)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     ice_cube (0.14.0)
     instagram (1.1.6)
@@ -205,6 +208,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.12.1)
+    multi_xml (0.5.5)
     multipart-post (2.0.0)
     mustermann (0.4.0)
       tool (~> 0.2)
@@ -374,6 +378,7 @@ DEPENDENCIES
   guard-minitest
   haml
   haml-rails
+  httparty
   ice_cube
   instagram
   jbuilder (~> 2.0)

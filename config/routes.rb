@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :programs, only: [:destroy]
     resources :schedules, only: [:create]
 
+    get '/', to: 'overview#index', as: ''
+    get 'users', to: 'administrators#list'
     get 'schedule', to: 'schedules#index'
     get 'schedule/new', to: 'schedules#new'
     get 'schedule/list', to: 'schedules#list'
@@ -34,8 +36,6 @@ Rails.application.routes.draw do
     # TODO(btc): set up admin-only access
   end
 
-  get '/admin', to: 'admin#index'
-  get 'admin/users', to: 'admin#users'
 
   root to: 'home#index'
 
