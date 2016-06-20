@@ -1,6 +1,6 @@
 
 namespace :sidekiq do
-  NUM_WORKERS = 2 
+  NUM_WORKERS = 4
   task :quiet do
     on roles(:app) do
       NUM_WORKERS.times.each do |i|
