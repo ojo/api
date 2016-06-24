@@ -12,7 +12,19 @@ class FetchStreamMetricsJob < ApplicationJob
         m.connection_count = resp['WowzaStreamingEngine']['VHost']['ConnectionsCurrent']
         m.save!
 
-        streams = resp['WowzaStreamingEngine']['VHost']['Application']['ApplicationInstance']['Stream']
+        instances = resp['WowzaStreamingEngine']['VHost']['Application']['ApplicationInstance']
+
+        streams = nil
+        if instances.is_a? Array
+          instances.each do |instance|
+            if instance['Name'] == '_definst_'
+              streams = instance['Stream']
+            end
+          end
+        elsif instances.is_a? Hash
+          streams = instances['Stream']
+        end
+
         streams.each do |s|
           m = StreamMetric.new
           m.name = s['Name']
