@@ -9,6 +9,7 @@
  *
  *= require_tree .
  *= require bootstrap
+ *= require font-awesome
  *= require recurring_select
  *= require bootstrap-datepicker3
  *= require_self
