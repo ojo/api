@@ -35,6 +35,7 @@ class Admin::ProgramsController < Admin::BaseController
     end
     existing = Program.find_by_id!(params[:id])
     @view_model.to_program(existing).save!
+    redirect_to admin_programs_calendar_path
   end
 
   def destroy
