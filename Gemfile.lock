@@ -10,11 +10,11 @@ GIT
 
 GIT
   remote: git@github.com:blowmage/minitest-rails.git
-  revision: 2a7b5ffaeb4f5164144bfd82923e22e349d84580
+  revision: e9bd0392330e21b76c445bb74372bbf295cdf785
   specs:
-    minitest-rails (3.0.0.rc1.20160507123149)
+    minitest-rails (3.0.0.20160701081338)
       minitest (~> 5.8)
-      railties (~> 5.0.0.rc1)
+      railties (~> 5.0)
 
 GIT
   remote: git@github.com:briantigerchow/recurring_select.git
@@ -121,7 +121,7 @@ GEM
     concurrent-ruby (1.0.2)
     connection_pool (2.2.0)
     debug_inspector (0.0.2)
-    devise (4.1.1)
+    devise (4.2.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 5.1)
@@ -337,11 +337,11 @@ GEM
       tilt (>= 1.4.0)
     simple_oauth (0.3.1)
     slop (3.6.0)
-    spring (1.7.1)
+    spring (1.7.2)
     spring-watcher-listen (2.0.0)
       listen (>= 2.7, < 4.0)
       spring (~> 1.2)
-    sprockets (3.6.2)
+    sprockets (3.6.3)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.1.1)
