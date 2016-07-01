@@ -43,7 +43,12 @@ class Admin::ProgramsController < Admin::BaseController
   end
 
   def calendar
-    @programs = Program.all.sort_by { |p| p.schedule.start_time }
+    id = params[:station_id]
+    if id
+      @programs = Program.where(station_id: id).sort_by { |p| p.schedule.start_time }
+    else
+      @programs = Program.all.sort_by { |p| p.schedule.start_time }
+    end
     @start_date = params[:start_date] ? Date.strptime(params[:start_date]) : Date.today
   end
 

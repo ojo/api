@@ -1,5 +1,16 @@
 = render 'admin/programs/tabs'
 
+<br>
+= form_tag(admin_programs_calendar_path, method: :get, class: 'form-horizontal') do
+  = select_tag "station_id",
+    options_from_collection_for_select(Station.all,
+      "id", "name", params[:station_id])
+  = submit_tag 'filter', class: 'btn btn-info'
+
+<br>
+= link_to 'Today', admin_programs_calendar_path(start_date: Date.today,
+    station_id: params[:station_id]), class: 'btn btn-primary'
+
 = month_calendar do |date|
 
   - if date == Date.today
