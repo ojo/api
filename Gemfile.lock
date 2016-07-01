@@ -291,6 +291,22 @@ GEM
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
     redis (3.3.0)
+    redis-actionpack (5.0.0.pre)
+      actionpack (>= 4.0.0, < 6)
+      redis-rack (~> 2.0.0.pre)
+      redis-store (~> 1.2.0.pre)
+    redis-activesupport (5.0.0.pre)
+      activesupport (>= 3, < 6)
+      redis-store (~> 1.2.0.pre)
+    redis-rack (2.0.0.pre)
+      rack (> 1.5, < 3)
+      redis-store (~> 1.2.0.pre)
+    redis-rails (5.0.0.pre)
+      redis-actionpack (~> 5.0.0.pre)
+      redis-activesupport (~> 5.0.0.pre)
+      redis-store (~> 1.2.0.pre)
+    redis-store (1.2.0.pre)
+      redis (>= 2.2)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     rollbar (2.12.0)
@@ -408,6 +424,7 @@ DEPENDENCIES
   rails-assets-jquery-ui!
   recurring_select!
   redis
+  redis-rails (~> 5.0.0.pre)
   rollbar
   sass-rails (~> 5.0)
   sidekiq

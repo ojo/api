@@ -9,4 +9,4 @@
   = line_chart StreamMetric.where("created_at >=?", Date.today.beginning_of_day).group(:name).group_by_hour_of_day(:created_at).average(:connection_count), ytitle: '# listeners', xtitle: 'hr of day'
 
 %h1 week over week growth:
-= line_chart StreamMetric.group(:name).group_by_week(:created_at).average(:connection_count)
+= line_chart StreamMetric.weekly_avg_by_name

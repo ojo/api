@@ -20,9 +20,15 @@
     = "#{date.day}/#{date.month}"
 
   <br>
-  - @programs.each do |e|
-    - if e.schedule != nil and e.schedule.occurs_on? date
-      = link_to edit_admin_program_path(e) do
-        %small
-          = e.name
-      <br>
+  %table
+    - @programs.each do |p|
+      - cache p do
+        - if p.schedule != nil and p.schedule.occurs_on? date
+          %tr
+            %td
+              %small
+                = program_time_range_pretty(p)
+            %td
+              = link_to edit_admin_program_path(p) do
+                %small
+                  = p.name

@@ -29,4 +29,10 @@ class StreamMetric < ApplicationRecord
   def self.names
     self.group(:name).pluck(:name)
   end
+
+  def self.weekly_avg_by_name
+    Rails.cache.fetch("StreamMetric/weekly_avg_by_name", expires_in: 1.hours) do
+      group(:name).group_by_week(:created_at).average(:connection_count)
+    end
+  end
 end
