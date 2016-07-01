@@ -1,14 +1,15 @@
 source 'https://rubygems.org'
 
 
-gem 'chartkick'
-gem 'groupdate'
 gem 'active_model_serializers'
 gem 'bootstrap-datepicker-rails'
+gem 'chartkick'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'font-awesome-rails'
+gem 'groupdate'
 gem 'haml'
+gem 'jquery-rails'
 gem 'httparty'
 gem 'ice_cube'
 gem 'instagram'
@@ -64,7 +65,6 @@ end
 
 
 source 'https://rails-assets.org' do
-  gem 'rails-assets-jquery'
   gem 'rails-assets-jquery-ui'
   gem 'rails-assets-bootstrap'
 end

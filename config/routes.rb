@@ -10,22 +10,21 @@ Rails.application.routes.draw do
 
   namespace :admin do
 
+    get '/', to: 'metrics#ttt'
+
     resources :managed_twitter_accounts, only: [:create, :update]
     resources :users
     resources :stations
     resources :managed_instagram_accounts, only: :update
-    resources :programs, only: [:destroy]
-    resources :schedules, only: [:create]
 
-    get '/', to: 'metrics#ttt'
+    get 'programs/calendar', to: 'programs#calendar' # b4 :programs or else overridden by 'show'
+    resources :programs
+
     get '/metrics/this-time-then', to: 'metrics#ttt'
     get '/metrics/index', to: 'metrics#index'
     get '/metrics/peak-times', to: 'metrics#peak_times'
 
     get 'users', to: 'administrators#list'
-    get 'schedule', to: 'schedules#index'
-    get 'schedule/new', to: 'schedules#new'
-    get 'schedule/list', to: 'schedules#list'
 
     get 'socialmedia', to: 'social_media_management#index'
     get 'socialmedia/instagram_oauth_connect', to: 'social_media_management#instagram_oauth_connect'

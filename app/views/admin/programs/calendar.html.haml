@@ -1,8 +1,6 @@
-= render 'admin/schedules/tabs'
+= render 'admin/programs/tabs'
 
-.btn-group
-  = link_to 'Today', admin_schedule_path(start_date: Date.today), class: 'btn btn-primary'
-= week_calendar number_of_weeks: 2 do |date|
+= month_calendar do |date|
 
   - if date == Date.today
     %strong
@@ -13,6 +11,7 @@
   <br>
   - @programs.each do |e|
     - if e.schedule != nil and e.schedule.occurs_on? date
-      %small
-        = e.name
+      = link_to edit_admin_program_path(e) do
+        %small
+          = e.name
       <br>

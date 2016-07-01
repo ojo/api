@@ -1,0 +1,7 @@
+%ul.nav.nav-tabs
+  %li{ class: current_page?(admin_programs_calendar_path) && 'active' }
+    = link_to 'Calendar', admin_programs_calendar_path
+  %li{ class: current_page?(admin_programs_path) && 'active' }
+    = link_to 'List', admin_programs_path
+  %li{ class: current_page?(new_admin_program_path) && 'active' }
+    = link_to 'New', new_admin_program_path

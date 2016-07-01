@@ -4,6 +4,8 @@ class Admin::ProgramViewModel
   include ActiveModel::Validations::Callbacks
   include MultiparameterAttributeAssignment
 
+
+  DATE_FORMAT = '%m/%d/%Y'
   PUBLIC_ACCESSORS = [:name, :start_date, :start_time, :end_time, :station_id, :recurrences]
 
   validates_presence_of :name, :start_date, :start_time, :end_time, :station_id
@@ -24,10 +26,19 @@ class Admin::ProgramViewModel
     end
   end
 
-  attr_accessor *PUBLIC_ACCESSORS
+  attr_accessor(*PUBLIC_ACCESSORS)
 
-  def to_program
-    Program.new.tap do |e|
+  def self.from_program p
+    self.new name: p.name,
+      recurrences: p.schedule.recurrence_rules.first, # NB: only one rule is supported
+      station_id: p.station_id,
+      start_time: p.schedule.start_time,
+      end_time: p.schedule.end_time,
+      start_date: p.schedule.start_date.strftime(DATE_FORMAT)
+  end
+
+  def to_program p = Program.new
+    p.tap do |e|
       e.name = self.name
       e.station_id = self.station_id
       e.schedule = self.to_ice_cube
@@ -35,7 +46,7 @@ class Admin::ProgramViewModel
   end
 
   def to_ice_cube
-    sdate = Date.strptime(self.start_date, '%m/%d/%Y')
+    sdate = Date.strptime(self.start_date, DATE_FORMAT)
     edate = sdate
 
     stime = Time.new(

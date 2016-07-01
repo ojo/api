@@ -1,0 +1,11 @@
+= render 'admin/programs/tabs'
+
+%h1 Editing Program
+<br>
+
+.col-sm-6
+  = render 'form'
+
+%div.row
+  .col-sm-10
+    = button_to 'delete', [:admin, @model], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }

@@ -1,0 +1,24 @@
+= form_tag(admin_program_path(@program), method: :put, class: 'form-horizontal') do
+  .form-group
+    = text_field('program', 'name', 
+      class: 'form-control', placeholder: 'Untitled', value: @view_model.name)
+  .form-group
+    = select_tag "program[station_id]", 
+      options_from_collection_for_select(Station.all, 
+        "id", "name", @view_model.station_id)
+  .form-group
+    = text_field('program', 'start_date', value: @view_model.start_date, class: 'bootstrap-datepicker form-control') #TODO rename
+  .form-group
+    - # values of time_selects are silently/implicitly populated by @view_model
+    = time_select 'program', 'start_time', minute_step: 15, ampm: true, object: @view_model
+    = time_select 'program', 'end_time', minute_step: 15, ampm: true , object: @view_model
+  .form-group
+    = select_recurring 'program', 'recurrences', 
+      [ IceCube::Rule.weekly.day(:monday, :tuesday, :wednesday, :thursday, :friday),
+      IceCube::Rule.weekly.day(:saturday, :sunday),
+      IceCube::Rule.weekly.day(:friday),
+      IceCube::Rule.weekly.day(:saturday),
+      IceCube::Rule.weekly.day(:sunday),
+      ], allow_blank: true, object: @view_model # |object| is provided to populate the field
+  .form-group
+    = submit_tag 'save program', class: 'btn btn-primary'
