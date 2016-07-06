@@ -9,11 +9,11 @@ gem 'dotenv-rails'
 gem 'font-awesome-rails'
 gem 'groupdate'
 gem 'haml'
-gem 'jquery-rails'
 gem 'httparty'
 gem 'ice_cube'
 gem 'instagram'
 gem 'jbuilder', '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jquery-rails'
 gem 'omniauth'
 gem 'pg', '~> 0.18' # Use postgresql as the database for Active Record
 gem 'puma', '~> 3.0' # Use Puma as the app server
