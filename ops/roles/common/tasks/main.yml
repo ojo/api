@@ -16,3 +16,4 @@
 - apt: name=python-software-properties 
 - apt: name=libffi-dev
 - apt: name=nodejs
+- apt: name=imagemagick

@@ -9,6 +9,9 @@
 %p
   %b Body:
   = @news_item.body
+%p
+  %b Photo:
+  = image_tag @news_item.photo
 
 = link_to 'Edit', edit_admin_news_item_path(@news_item)
 \|

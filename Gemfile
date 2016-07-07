@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 
 gem 'active_model_serializers'
+gem 'paperclip'
+gem 'fog'
 gem 'bootstrap-datepicker-rails'
 gem 'chartkick'
 gem 'devise'

@@ -2,6 +2,12 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
 
+  namespace :api do
+    namespace :v0 do
+      resources :news_items, only: [:index]
+    end
+  end
+
   scope :api do
     get 'timeline', to: 'timeline#index'
     post '/now-playing', to: 'now_playing#create'
