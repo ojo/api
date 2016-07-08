@@ -7,6 +7,10 @@ class Api::V0::NewsItemSerializer < ActiveModel::Serializer
     object.photo.url(:thumb)
   end
 
+  def created_at
+    object.created_at.to_i
+  end
+
   def photo_url
     object.photo.url
   end
