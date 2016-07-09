@@ -49,9 +49,9 @@ class Dsl
         end
         puts "#{fname} overwritten"
       end
-      f = File.open(fname, "w")
-      f.puts str
-      f.close
+      File.open(fname, "w") do |f|
+        f.puts str
+      end
     end
   end
 
