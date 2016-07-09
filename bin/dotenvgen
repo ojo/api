@@ -18,9 +18,7 @@ class Dsl
 
   def env key, value
     @current_groups.each do |g|
-      if @group_data[g] == nil
-        @group_data[g] = []
-      end
+      @group_data[g] = [] if @group_data[g] == nil
       @group_data[g] << { key => value }
     end
   end
