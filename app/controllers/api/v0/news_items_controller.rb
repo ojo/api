@@ -1,6 +1,5 @@
-class Api::V0::NewsItemsController < ApplicationController
+class Api::V0::NewsItemsController < Api::V0::BaseController
   include ::ActionController::Serialization
-  skip_before_action :authenticate_user!, only: :index
 
   def index
     items = NewsItem.order(created_at: :desc).all
