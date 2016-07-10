@@ -46,7 +46,6 @@ Rails.application.routes.draw do
     # TODO(btc): set up admin-only access
   end
 
-
   root to: 'home#index'
 
   devise_for :users
