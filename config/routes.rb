@@ -37,13 +37,9 @@ Rails.application.routes.draw do
     get 'socialmedia/instagram_oauth_connect', to: 'social_media_management#instagram_oauth_connect'
     get 'socialmedia/instagram_oauth_callback', to: 'social_media_management#instagram_oauth_callback'
   end
-  if Rails.env.development?
-    authenticate :user do
-      mount Sidekiq::Web => '/admin/sidekiq'
-    end
-  else
+
+  authenticate :user do # TODO(btc): set up admin-only access
     mount Sidekiq::Web => '/admin/sidekiq'
-    # TODO(btc): set up admin-only access
   end
 
   root to: 'home#index'
