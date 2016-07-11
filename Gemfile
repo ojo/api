@@ -2,12 +2,11 @@ source 'https://rubygems.org'
 
 
 gem 'active_model_serializers'
-gem 'paperclip'
-gem 'fog'
 gem 'bootstrap-datepicker-rails'
 gem 'chartkick'
 gem 'devise'
 gem 'dotenv-rails'
+gem 'fog'
 gem 'font-awesome-rails'
 gem 'groupdate'
 gem 'haml'
@@ -17,6 +16,7 @@ gem 'instagram'
 gem 'jbuilder', '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jquery-rails'
 gem 'omniauth'
+gem 'paperclip'
 gem 'pg', '~> 0.18' # Use postgresql as the database for Active Record
 gem 'puma', '~> 3.0' # Use Puma as the app server
 gem 'rails', '>= 5.0.0.rc1', '< 5.1' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
