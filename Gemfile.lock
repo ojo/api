@@ -36,6 +36,17 @@ GIT
     simple_calendar (2.1.5)
       rails (>= 3.0)
 
+GIT
+  remote: git@github.com:mihaibb/ember-cli-rails.git
+  revision: 2797b058c9d70b8163221f3b01b334ee0968d092
+  ref: 2797b058c9d70b8163221f3b01b334ee0968d092
+  specs:
+    ember-cli-rails (0.7.3)
+      cocaine (~> 0.5.8)
+      ember-cli-rails-assets (~> 0.6.2)
+      html_page (~> 0.1.0)
+      railties (>= 3.2, <= 5.1.0.alpha)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -138,6 +149,7 @@ GEM
     dotenv-rails (2.1.1)
       dotenv (= 2.1.1)
       railties (>= 4.0, < 5.1)
+    ember-cli-rails-assets (0.6.2)
     equalizer (0.0.10)
     erubis (2.7.0)
     excon (0.51.0)
@@ -311,6 +323,7 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
+    html_page (0.1.0)
     http (1.0.4)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -551,6 +564,7 @@ DEPENDENCIES
   chartkick
   devise
   dotenv-rails
+  ember-cli-rails!
   fog
   font-awesome-rails
   foreman
