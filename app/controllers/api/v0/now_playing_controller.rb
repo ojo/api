@@ -1,8 +1,10 @@
-class NowPlayingController < ApplicationController
-  protect_from_forgery :except => [:create] # uses API auth
-  skip_before_action :authenticate_user!, only: :create
+class Api::V0::NowPlayingController < Api::V0::BaseController
 
-  def create
+  def create_serato_dj
+    # TODO
+  end
+
+  def create_csrds
 
     if params[:token] != "foo" # TODO get token
       return head :unauthorized

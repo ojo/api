@@ -10,12 +10,14 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v0 do
       resources :news_items, only: [:index]
+
+      post '/now-playing/serato-dj', to: 'now_playing#create_serato_dj'
+      post '/now-playing/csrds', to: 'now_playing#create_csrds'
     end
   end
 
   scope :api do
     get 'timeline', to: 'timeline#index'
-    post '/now-playing', to: 'now_playing#create'
     get 'auth/new'
   end
 
