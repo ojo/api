@@ -18,7 +18,6 @@ Rails.application.routes.draw do
 
   scope :api do
     get 'timeline', to: 'timeline#index'
-    get 'auth/new'
   end
 
   namespace :admin do
