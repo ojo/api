@@ -16,10 +16,7 @@ end
 
 class FrontendUtil
   FRONTENDS = %w(
-    www.96wefm.com
     www.ojo.world
-    www.1077musicforlife.com
-    www.star947tt.com
     www.ttrn.org
   )
 
