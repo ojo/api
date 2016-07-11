@@ -1,9 +1,16 @@
 require 'sidekiq/web'
 require 'domain_constraint'
 
+def route_frontend host
+  reversed = host.split('.').reverse.join
+  root to: "domains/#{reversed}/home#index", constraints: DomainConstraint.new(["#{host}.dev", host])
+end
+
 Rails.application.routes.draw do
 
-  root to: 'domains/orgttrnwww/home#index', constraints: DomainConstraint.new(['www.ttrn.org.dev', 'www.ttrn.org'])
+  route_frontend 'www.96wefm.com'
+  route_frontend 'www.ttrn.org'
+  route_frontend 'www.star947tt.com'
 
   namespace :api do
     namespace :v0 do
