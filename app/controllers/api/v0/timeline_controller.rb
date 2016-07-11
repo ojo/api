@@ -1,4 +1,4 @@
-class TimelineController < ApplicationController
+class Api::V0::TimelineController < Api::V0::BaseController
   include ::ActionController::Serialization
   skip_before_action :authenticate_user!, only: :index
 
