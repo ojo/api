@@ -3,9 +3,7 @@ require 'domain_constraint'
 
 Rails.application.routes.draw do
 
-  constraints DomainConstraint.new(['www.ttrn.org.dev', 'www.ttrn.org']) do
-    root to: 'domains/orgttrnwww/home#index'
-  end
+  root to: 'domains/orgttrnwww/home#index', constraints: DomainConstraint.new(['www.ttrn.org.dev', 'www.ttrn.org'])
 
   namespace :api do
     namespace :v0 do
