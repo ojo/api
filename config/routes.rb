@@ -1,6 +1,11 @@
 require 'sidekiq/web'
+require 'domain_constraint'
 
 Rails.application.routes.draw do
+
+  constraints DomainConstraint.new(['www.ttrn.org.dev', 'www.ttrn.org']) do
+    root to: 'domains/orgttrnwww/home#index'
+  end
 
   namespace :api do
     namespace :v0 do
@@ -41,8 +46,6 @@ Rails.application.routes.draw do
   authenticate :user do # TODO(btc): set up admin-only access
     mount Sidekiq::Web => '/admin/sidekiq'
   end
-
-  root to: 'home#index'
 
   devise_for :users
 
