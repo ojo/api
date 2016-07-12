@@ -1,4 +1,3 @@
-require 'sidekiq/web'
 require 'domain_constraint'
 require 'frontend_util'
 
@@ -39,10 +38,6 @@ Rails.application.routes.draw do
     get 'socialmedia', to: 'social_media_management#index'
     get 'socialmedia/instagram_oauth_connect', to: 'social_media_management#instagram_oauth_connect'
     get 'socialmedia/instagram_oauth_callback', to: 'social_media_management#instagram_oauth_callback'
-  end
-
-  authenticate :user do # TODO(btc): set up admin-only access
-    mount Sidekiq::Web => '/admin/sidekiq'
   end
 
   devise_for :users
