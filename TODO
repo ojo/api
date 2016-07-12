@@ -32,11 +32,13 @@ TODO
     create RDS
         store cxn string in S3
             http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.RDS.html#rds-external-credentials
+        http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.RDS.html
     create ELB web
         install npm then bower
         us-east-1
         move paperclip to S3
         set ELB listener to TCP
+        implement /_health
         configure ActionCable
             http://stackoverflow.com/questions/37356503/deploying-rails-actioncable-using-aws-elastic-beanstalk
     create ELB worker
