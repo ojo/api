@@ -29,6 +29,24 @@
         include button to jump to today
 
 TODO
+    create RDS
+        store cxn string in S3
+            http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.RDS.html#rds-external-credentials
+    create ELB web
+        install npm then bower
+        us-east-1
+        move paperclip to S3
+        set ELB listener to TCP
+        configure ActionCable
+            http://stackoverflow.com/questions/37356503/deploying-rails-actioncable-using-aws-elastic-beanstalk
+    create ELB worker
+        configure active-elastic-job
+    create Elasticache
+
+    Later AWS
+        Blue-green deployment
+            http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.CNAMESwap.html
+
     news feed
         Gemfile: gem 'active_model_serializers'
         app/models/timeline.rb
