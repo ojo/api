@@ -40,6 +40,7 @@ TODO
         configure ActionCable
             http://stackoverflow.com/questions/37356503/deploying-rails-actioncable-using-aws-elastic-beanstalk
     create ELB worker
+        http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features-managing-env-tiers.html#worker-periodictasks
         configure active-elastic-job
     create Elasticache
 
