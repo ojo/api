@@ -43,11 +43,7 @@ Rollbar.configure do |config|
   # Enable asynchronous reporting (using sucker_punch)
   # config.use_sucker_punch
 
-  # Enable delayed reporting (using Sidekiq)
-  config.use_sidekiq
-  # TODO
-  # You can supply custom Sidekiq options:
-  config.use_sidekiq 'queue' => 'default'
+  # TODO implement activejob async reporting
 
   # If you run your staging application instance in production environment then
   # you'll want to override the environment reported by `Rails.env` with an
