@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
   # TODO(btc): explore API implications
   protect_from_forgery with: :exception
 
+  def health
+    render json: {
+      status: 'ok'
+    }
+  end
+
   def layout_by_resource
     if devise_controller?
       'bootstrap'

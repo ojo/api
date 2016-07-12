@@ -47,4 +47,5 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  get '_health', to: 'application#health'
 end
