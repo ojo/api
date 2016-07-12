@@ -20,15 +20,14 @@ gem 'jquery-rails'
 gem 'omniauth'
 gem 'paperclip'
 gem 'pg', '~> 0.18' # Use postgresql as the database for Active Record
-gem 'puma', '~> 3.0' # Use Puma as the app server
+gem 'puma'
 gem 'rails', '>= 5.0.0.rc1', '< 5.1' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'recurring_select', git: 'git@github.com:briantigerchow/recurring_select.git', ref: '2d72656e8017c40aa8a1a95759862675266d7131'
 gem 'redis'
-gem 'redis-rails' ,"~> 5.0.0.pre"
+gem 'redis-rails'
 gem 'rollbar'
 gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
 gem 'simple_calendar', git: 'git@github.com:excid3/simple_calendar.git', branch: 'master'
-gem 'sinatra', :require => nil, :git => 'git://github.com/sinatra/sinatra.git' # TODO(btc): use rubygems sinatra once bugfix is merged/released there (https://github.com/sinatra/sinatra/issues/1055)
 gem 'twitter'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
