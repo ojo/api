@@ -3,8 +3,6 @@ require 'frontend_util'
 
 Rails.application.routes.draw do
 
-  mount_frontends
-
   namespace :api do
     namespace :v0 do
       get 'timeline', to: 'timeline#index'
