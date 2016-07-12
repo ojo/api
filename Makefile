@@ -12,6 +12,3 @@ update:
 
 deploy:
 	bundle exec cap production deploy
-
-updotenv:
-	aws s3 cp .env.production s3://ttrn-api-util/.env.production
