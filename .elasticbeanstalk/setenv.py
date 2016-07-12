@@ -14,6 +14,6 @@ if __name__ == "__main__":
         strs = map(transform_str_pair, f.readlines())
         env_vars = string.join(strs)
         cmd = ["eb", "setenv"] + strs
-        print cmd
+        print string.join(cmd)
         call(cmd)
 
