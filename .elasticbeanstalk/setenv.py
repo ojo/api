@@ -9,11 +9,10 @@ def transform_str_pair(pair):
 
 
 if __name__ == "__main__":
-    dotenv_filename = sys.argv[1]
-    with open(dotenv_filename) as f:
-        strs = map(transform_str_pair, f.readlines())
-        env_vars = string.join(strs)
-        cmd = ["eb", "setenv"] + strs
-        print string.join(cmd)
-        call(cmd)
-
+    cmd = ["eb", "setenv"]
+    for dotenv_filename in sys.argv[1:]:
+        with open(dotenv_filename) as f:
+            strs = map(transform_str_pair, f.readlines())
+            cmd = cmd + strs
+    print string.join(cmd)
+    # call(cmd)
