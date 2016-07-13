@@ -1,18 +1,15 @@
-%p#notice= notice
-
-%p
-  %b Title:
-  = @news_item.title
-%p
-  %b Subtitle:
-  = @news_item.subtitle
-%p
-  %b Body:
-  = @news_item.body.html_safe
-%p
-  %b Photo:
-  = image_tag @news_item.photo
-
 = link_to 'Edit', edit_admin_news_item_path(@news_item)
 \|
 = link_to 'Back', admin_news_items_path
+
+%p#notice= notice
+
+%h1
+  = @news_item.title
+%h4
+  foo
+  = @news_item.subtitle
+%p
+  = @news_item.body.html_safe
+%p
+  = image_tag @news_item.photo
