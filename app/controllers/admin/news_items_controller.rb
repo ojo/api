@@ -1,5 +1,5 @@
 class Admin::NewsItemsController < Admin::BaseController
-  before_action :set_news_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_news_item, only: [:show, :edit, :update, :destroy, :crop]
 
   # GET /news_items
   # GET /news_items.json
@@ -61,6 +61,9 @@ class Admin::NewsItemsController < Admin::BaseController
     end
   end
 
+  def crop
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_news_item
@@ -69,6 +72,12 @@ class Admin::NewsItemsController < Admin::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_item_params
-      params.require(:news_item).permit(:title, :subtitle, :body, :photo)
+      params.require(:news_item).permit(
+        :title, :subtitle, :body, :photo,
+
+        # these are required for gem 'papercrop' cropping
+        :photo_original_w, :photo_original_h, :photo_box_w, :photo_aspect,
+        :photo_crop_x, :photo_crop_y, :photo_crop_w, :photo_crop_h
+      )
     end
 end

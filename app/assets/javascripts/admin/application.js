@@ -3,6 +3,10 @@
 //= require jquery_ujs
 //= require bootstrap
 //
+//= require jquery.jcrop
+//  after bootstrap and jquery
+//= require papercrop
+//
 // after bootstrap and jquery
 //= require bootsy
 //

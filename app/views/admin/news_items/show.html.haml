@@ -1,6 +1,8 @@
 = link_to 'Edit', edit_admin_news_item_path(@news_item)
 \|
 = link_to 'Back', admin_news_items_path
+\|
+= link_to 'Crop Photo', crop_admin_news_item_path
 
 %p#notice= notice
 
@@ -11,4 +13,4 @@
 %p
   = @news_item.body.html_safe
 %p
-  = image_tag @news_item.photo
+  = image_tag @news_item.photo.url(:large)

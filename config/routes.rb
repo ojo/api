@@ -21,7 +21,12 @@ Rails.application.routes.draw do
     get '/', to: 'metrics#ttt'
 
     resources :managed_twitter_accounts, only: [:create, :update]
-    resources :news_items
+
+    resources :news_items do
+      member do
+        get 'crop'
+      end
+    end
     resources :users
     resources :stations
     resources :managed_instagram_accounts, only: :update

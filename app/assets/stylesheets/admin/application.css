@@ -11,6 +11,7 @@
  *= require bootstrap
  *= require font-awesome
  *= require recurring_select
+ *= require jquery.jcrop
  *= require bootstrap-datepicker3
  *= require bootsy
  *= require_self
