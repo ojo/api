@@ -5,18 +5,16 @@
       %ul
         - @news_item.errors.full_messages.each do |msg|
           %li= msg
-
-  .field
-    = f.label :photo
+  .form-group
+    = f.submit 'Save', class: 'btn btn-primary btn-block'
+  .form-group
+    = f.label 'Photo (required)'
     = f.file_field :photo
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :subtitle
-    = f.text_field :subtitle
-  .field
-    = f.label :body
-    = f.text_area :body
+  .form-group
+    = f.text_field :title, class: 'form-control', placeholder: 'Title (required)'
+  .form-group
+    = f.text_field :subtitle, class: 'form-control', placeholder: 'Subtitle (optional)'
+  .form-group
+    = f.bootsy_area :body, as: :bootsy, class: 'form-control', rows: 20, placeholder: 'Body (required)'
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-primary btn-block'

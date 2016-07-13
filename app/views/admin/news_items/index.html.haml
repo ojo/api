@@ -19,7 +19,7 @@
       %tr
         %td= news_item.title
         %td= news_item.subtitle
-        %td= news_item.body
+        %td= news_item.body.html_safe
         %td 
           - unless news_item.photo.nil?
             = image_tag news_item.photo.url(:thumb)

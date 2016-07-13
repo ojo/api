@@ -8,7 +8,7 @@
   = @news_item.subtitle
 %p
   %b Body:
-  = @news_item.body
+  = @news_item.body.html_safe
 %p
   %b Photo:
   = image_tag @news_item.photo
