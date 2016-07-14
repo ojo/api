@@ -9,5 +9,6 @@ class JobRunnerController < ApplicationController
     job_name = params[:job]
     job = "#{job_name}_job".titleize.gsub(' ', '').constantize.new
     job.perform_now
+    return head(:ok)
   end
 end
