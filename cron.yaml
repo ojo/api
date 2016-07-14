@@ -2,7 +2,7 @@ version: 1
 cron:
     - name: 'HeartbeatJob'
       url: '/_jobs/heartbeat'
-      schedule: "*/30 * * * *"
+      schedule: "* * * * *"
     - name: 'FetchStreamMetricsJob'
       url: '/_jobs/fetch_stream_metrics'
-      schedule: "*/5 * * * *"
+      schedule: "* * * * *"
