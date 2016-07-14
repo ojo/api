@@ -1,0 +1,8 @@
+version: 1
+cron:
+    - name: 'HeartbeatJob'
+      url: '/_jobs/heartbeat'
+      schedule: "* * * * *"
+    - name: 'FetchStreamMetricsJob'
+      url: '/_jobs/fetch_stream_metrics'
+      schedule: "* * * * *"
