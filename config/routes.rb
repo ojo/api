@@ -3,8 +3,6 @@ require 'frontend_util'
 
 Rails.application.routes.draw do
 
-  post '_jobs/:job', to: 'job_runner#perform_now'
-
   namespace :api do
     namespace :v0 do
       get 'timeline', to: 'timeline#index'
@@ -47,5 +45,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  post '_jobs/:job', to: 'job_runner#perform_now'
   get '_health', to: 'application#health'
+
 end
