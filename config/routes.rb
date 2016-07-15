@@ -3,6 +3,8 @@ require 'frontend_util'
 
 Rails.application.routes.draw do
 
+  mount ActionCable.server, to: '/cable'
+
   namespace :api do
     namespace :v0 do
       get 'timeline', to: 'timeline#index'

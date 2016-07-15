@@ -37,8 +37,8 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Action Cable endpoint configuration
-  # config.action_cable.url = 'wss://example.com/cable'
-  # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
+  config.action_cable.url = "wss://api.ojo.world/cable"
+  config.action_cable.allowed_request_origins = [ /http(s)?:\/\/[a-zA-Z]+.ojo.world/ ]
 
   # Don't mount Action Cable in the main server process.
   # config.action_cable.mount_path = nil

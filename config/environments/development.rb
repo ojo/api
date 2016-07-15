@@ -1,4 +1,6 @@
 Rails.application.configure do
+  config.action_cable.url = "ws://localhost:3000/cable"
+
   config.active_job.queue_adapter = :inline
 
   # Settings specified here will take precedence over those in config/application.rb.
