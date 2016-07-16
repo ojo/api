@@ -3,7 +3,7 @@ require 'frontend_util'
 
 Rails.application.routes.draw do
 
-  mount ActionCable.server, to: '/cable'
+  mount ActionCable.server => '/cable'
 
   namespace :api do
     namespace :v0 do
