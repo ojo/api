@@ -38,7 +38,7 @@ Rails.application.configure do
 
   # Action Cable endpoint configuration
   config.action_cable.url = "wss://api.ojo.world/cable"
-  config.action_cable.allowed_request_origins = [ /http(s)?:\/\/[a-zA-Z]+.ojo.world/ ]
+  config.action_cable.allowed_request_origins = [ /http(s)?:\/\/127.0.0.1(:[\d]+)?/, /http(s)?:\/\/[a-zA-Z]+.ojo.world/ ]
 
   # Don't mount Action Cable in the main server process.
   # config.action_cable.mount_path = nil
