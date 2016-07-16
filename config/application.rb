@@ -18,14 +18,9 @@ Bundler.require(*Rails.groups)
 
 module Ttrn
   class Application < Rails::Application
-
-    config.middleware.use 'Clogger',
-      format: 'WEBSOCKET_HEADERS $http_connection : $http_upgrade',
-      reentrant: true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    # TODO set to -4 time
     config.time_zone = 'Eastern Time (US & Canada)'
 
     config.cache_store = :redis_store, File.join(ENV.fetch('REDIS_URL'), '/0/cache'), { expires_in: 90.minutes }
