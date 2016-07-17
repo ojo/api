@@ -1,5 +1,4 @@
 class FetchTweetEmbedsJob < ApplicationJob
-  queue_as :default
   NUM_EMBEDS_PER_ACCOUNT = 10
   NUM_SECONDS_TO_WAIT = 0 # try once. give up immediately.
 

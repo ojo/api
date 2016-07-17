@@ -1,6 +1,4 @@
 class HeartbeatJob < ApplicationJob
-  queue_as :default
-
   def self.heartbeat_key
     'heartbeat_last_run'
   end

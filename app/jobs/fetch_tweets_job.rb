@@ -1,6 +1,4 @@
 class FetchTweetsJob < ApplicationJob
-  queue_as :default
-
   TWEETS_PER_REQUEST = 20
   NUM_SECONDS_TO_WAIT = 0
 

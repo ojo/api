@@ -1,5 +1,4 @@
 class FetchInstagramsJob < ApplicationJob
-  queue_as :default
 
   ITEMS_PER_REQUEST = 20
   NUM_SECONDS_TO_WAIT = 0
