@@ -1,8 +1,8 @@
 version: 1
 cron:
     - name: 'HeartbeatJob'
-      url: '/_jobs/heartbeat'
-      schedule: "* * * * *"
+      url: '/_jobs'
+      schedule: "*/10 * * * *"
     - name: 'FetchStreamMetricsJob'
-      url: '/_jobs/fetch_stream_metrics'
+      url: '/_jobs'
       schedule: "* * * * *"

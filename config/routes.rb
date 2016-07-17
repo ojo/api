@@ -47,7 +47,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  post '_jobs/:job', to: 'job_runner#perform_now'
+  post '_jobs', to: 'job_runner#perform_now'
   get '_health', to: 'application#health'
 
 end
