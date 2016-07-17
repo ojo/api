@@ -4,7 +4,7 @@ class SoundChat::LikeChannel < ApplicationCable::Channel
     stream_from "likes"
   end
 
-  def likes
+  def receive(data)
     BroadcastLikesJob.new.perform_later
   end
 
