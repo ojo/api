@@ -73,7 +73,7 @@ class Admin::NewsItemsController < Admin::BaseController
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_item_params
       params.require(:news_item).permit(
-        :title, :subtitle, :body, :photo,
+        :title, :subtitle, :body, :photo, :straphead, :photo_caption,
 
         # these are required for gem 'papercrop' cropping
         :photo_original_w, :photo_original_h, :photo_box_w, :photo_aspect,
