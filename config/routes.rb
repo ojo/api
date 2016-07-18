@@ -16,6 +16,10 @@ Rails.application.routes.draw do
     end
   end
 
+  constraints DomainConstraint.new(['ops.ojo.world', 'ops.ttrn.org', 'ops.ojo.world.dev', 'ops.ttrn.org.dev']) do
+    root to: redirect('/admin')
+  end
+
   namespace :admin do
 
     get '/', to: 'metrics#ttt'
