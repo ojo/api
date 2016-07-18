@@ -19,7 +19,12 @@
               - @news_items.each do |i|
                 %tr
                   %td= image_tag i.photo.url(:thumb)
-                  %td= link_to i.title, [:admin, i]
+                  %td
+                    = i.straphead
+                    <br/>
+                    = link_to i.title, [:admin, i]
+                    <br/>
+                    = i.subtitle
                   %td
                     %span.label= i.state
                   %td
