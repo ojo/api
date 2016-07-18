@@ -4,7 +4,7 @@ class Admin::NewsItemsController < Admin::BaseController
   # GET /news_items
   # GET /news_items.json
   def index
-    @news_items = NewsItem.all
+    @news_items = NewsItem.all.order(created_at: :desc)
   end
 
   # GET /news_items/1

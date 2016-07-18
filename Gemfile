@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 
+gem "truncate_html"
 gem 'active_elastic_job'
 gem 'active_model_serializers'
 gem 'bootstrap-datepicker-rails'
