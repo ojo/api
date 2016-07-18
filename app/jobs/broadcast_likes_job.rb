@@ -1,6 +1,6 @@
 class BroadcastLikesJob < ApplicationJob
   def perform(*args)
-    r = Ratelimit.new(self.class.name, redis: $redis)
+    r = Ratelimit.new(self.class.name, redis: $redis, bucket_interval: 1)
     if r.exceeded?('likes', threshold: 2, interval: 1) # 2 per second
       return
     end
