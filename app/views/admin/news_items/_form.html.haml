@@ -6,19 +6,21 @@
         - @news_item.errors.full_messages.each do |msg|
           %li= msg
   .form-group
-    = f.submit 'Save', class: 'btn btn-primary'
+    = f.submit 'Save Draft', class: 'btn btn-primary'
   .form-group
     = f.label 'Photo (required)'
     = f.file_field :photo
+    .help-block
+      You'll have a chance to resize and crop the image after saving an initial draft.
   .form-group.form-group-sm
     = f.text_field :photo_caption, class: 'form-control', placeholder: 'Photo Caption (optional)'
   .form-group.form-group-sm
-    = f.text_field :straphead, class: 'form-control', placeholder: 'Straphead (optional)'
+    = f.text_field :straphead, class: 'form-control', placeholder: 'Strap Head (optional)'
   .form-group.form-group-lg
     = f.text_field :title, class: 'form-control', placeholder: 'Title (required)'
   .form-group.form-group-sm
-    = f.text_field :subtitle, class: 'form-control', placeholder: 'Subtitle (optional)'
+    = f.text_field :subtitle, class: 'form-control', placeholder: 'Subtitle/Drop Head (optional)'
   .form-group
     = f.bootsy_area :body, as: :bootsy, class: 'form-control', rows: 20, placeholder: 'Body (required)'
   .actions
-    = f.submit 'Save', class: 'btn btn-primary'
+    = f.submit 'Save Draft', class: 'btn btn-primary'
