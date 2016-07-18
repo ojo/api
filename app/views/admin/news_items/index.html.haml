@@ -1,12 +1,40 @@
-%article.blog.blog-archive.mb50
-  .col-xs-12.col-sm-12.col-md-8.col-md-offset-2.col-lg-8.col-md-offset-2
-    %ol.list-unstyled
-      - @news_items.each do |item|
-        %li
-          %h1= item.title
-          .article-meta.media.color-grey-50
-            .media-body
-              %p.m0.media-heading
-                %time= item.created_at.strftime("%e %B %Y")
-          %p= truncate_html item.body, length: 400
-          %a{:href => "#"} Read more &#8594;
+.mt20.ml20
+  = link_to new_admin_news_item_path do
+    .btn.btn-primary
+      New
+.container-fluid
+  .row
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12.mt20
+      .panel.panel-default
+        .panel-body
+          %table.table
+            %thead
+              %tr
+                %th.col-md-1 thumb
+                %th.col-md-6 title
+                %th.col-md-2 state
+                %th.col-md-3
+                  -# actions
+            %tbody
+              - @news_items.each do |i|
+                %tr
+                  %td= image_tag i.photo.url(:thumb)
+                  %td= link_to i.title, [:admin, i]
+                  %td
+                    %span.label= i.state
+                  %td
+                    .btn-group.btn-group-xs
+                      -#    before         after           message       class
+                      - [ ['draft',       'published',    'Publish',    'btn btn-primary'],
+                          ['published',   'unpublished',  'Unpublish',  'btn btn-default'],
+                          ['unpublished', 'republished',  'Republish',  'btn btn-primary'],
+                          ['republished', 'unpublished',  'Unpublish',  'btn btn-default'],
+                      ].each do |operation|
+                        - if i.state == operation[0]
+                          = button_to [:admin, i],
+                            method: :patch,
+                            params: { news_item: { state: operation[1] } },
+                            class: operation[3] do
+                            = operation[2]
+                      = button_to [:admin, i], class: 'btn btn-danger', method: :delete do
+                        %i.fa.fa-trash

@@ -22,8 +22,10 @@
         %span.fa.arrow
       %ul.nav.nav-second-level.collapse{"aria-expanded" => "false"}
         %li
-          = link_to 'New', new_admin_news_item_path 
-          
+          = link_to 'New', new_admin_news_item_path
+        %li
+          = link_to 'All', admin_news_items_path
+
         -# %li
         -#   %a.active{:href => "#"} Second Level Item
         -# %li

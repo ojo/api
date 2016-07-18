@@ -5,3 +5,11 @@
 .news-item > .photo {
   text-align: center;
 }
+
+.news-item > .state {
+  text-align: center;
+}
+
+div.btn-group form {
+  display: inline;
+}
