@@ -416,6 +416,9 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (11.2.2)
+    ratelimit (1.0.2)
+      redis (>= 2.0.0)
+      redis-namespace (>= 1.0.0)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
@@ -431,6 +434,8 @@ GEM
     redis-activesupport (5.0.1)
       activesupport (>= 3, < 6)
       redis-store (~> 1.2.0)
+    redis-namespace (1.5.2)
+      redis (~> 3.0, >= 3.0.4)
     redis-rack (2.0.0.pre)
       rack (> 1.5, < 3)
       redis-store (~> 1.2.0.pre)
@@ -546,6 +551,7 @@ DEPENDENCIES
   rails (>= 5.0.0.rc1, < 5.1)
   rails-assets-bootstrap!
   rails-assets-jquery-ui!
+  ratelimit
   recurring_select!
   redis
   redis-rails
