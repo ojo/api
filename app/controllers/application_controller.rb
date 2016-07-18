@@ -7,8 +7,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def health
+    # TODO try fetching an object from the DB
+    HeartbeatJob.perform_later
     render json: {
-      status: 'ok'
+      status: 'ok',
+      jobs: 'ok'
     }
   end
 end
