@@ -1,0 +1,7 @@
+.news-item > .photo > img {
+  max-width: 100%;
+}
+
+.news-item > .photo {
+  text-align: center;
+}

@@ -1,7 +1,12 @@
-%h1 Editing News Item
+.container-fluid
+  .row
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12.mt20
+      .panel.panel-default
+        .panel-body
+          = link_to 'Back', admin_news_items_path
+          \|
+          = link_to 'View', [:admin, @news_item]
 
-= render 'form'
+          %h1 Edit...
 
-= link_to 'Show', [:admin, @news_item]
-\|
-= link_to 'Back', admin_news_items_path
+          = render 'form', save_btn_text: 'Update'
