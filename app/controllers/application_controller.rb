@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  layout :layout_by_resource
+  layout 'application'
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -10,13 +10,5 @@ class ApplicationController < ActionController::Base
     render json: {
       status: 'ok'
     }
-  end
-
-  def layout_by_resource
-    if devise_controller?
-      'bootstrap'
-    else
-      'application'
-    end
   end
 end
