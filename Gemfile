@@ -70,3 +70,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-ui'
   gem 'rails-assets-bootstrap'
 end
+
+source "https://dresssed.com/gems/f94e3a9075840b0659bc/" do
+  gem "dresssed-ives", "~> 1.0.34"
+end
