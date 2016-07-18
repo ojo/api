@@ -3,8 +3,10 @@ class Admin::BaseController < ApplicationController
 
   before_action :authenticate_user!
 
+  check_authorization unless: :devise_controller?
+
   before_action do
-    if current_user && current_user.is_admin?
+    if current_user && current_user.has_role?(:superadmin)
       Rack::MiniProfiler.authorize_request
     end
   end

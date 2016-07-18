@@ -1,0 +1,37 @@
+.container-fluid
+  .row
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12.mt20
+      .panel.panel-default
+        .panel-body
+          = form_tag action: :update, html: { class: 'form-inline' } do
+            = select_tag :user_id,
+                options_from_collection_for_select(User.all.sort, 'id', 'email'), prompt: '(user)'
+            = select_tag :instruction, options_for_select(%w[add remove]),
+                prompt: '(add or remove)'
+            = select_tag :role, options_for_select(Role.role_names), prompt: '(role)'
+            %button.btn(type='submit') change
+
+.container-fluid
+  .row
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12.mt20
+      .panel.panel-default
+        .panel-body
+          %table.table
+            %thead
+              %th
+                email
+              - Role.role_names.each do |role|
+                %th
+                  = role.titleize
+            %tbody
+              - @users.each do |user|
+                %tr{ class: ('success' if user.has_role? :superadmin)}
+                  %td
+                    = user.email
+                  - Role.role_names.each do |role|
+                    %td
+                      - if user.has_role? role
+                        %span.badge.badge-success
+                          yes
+                      - else
+                        no

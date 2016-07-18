@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   constraints DomainConstraint.new(['ops.ojo.world', 'ops.ttrn.org', 'ops.ojo.world.dev', 'ops.ttrn.org.dev']) do
-    root to: redirect('/admin')
+    get '/', to: redirect('/admin')
   end
 
   namespace :admin do
@@ -41,6 +41,9 @@ Rails.application.routes.draw do
     get '/metrics/this-time-then', to: 'metrics#ttt'
     get '/metrics/index', to: 'metrics#index'
     get '/metrics/peak-times', to: 'metrics#peak_times'
+
+    get 'roles/manage'
+    post 'roles/update'
 
     get 'users', to: 'administrators#list'
 

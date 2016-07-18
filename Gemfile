@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
 
-gem "truncate_html"
 gem 'active_elastic_job'
 gem 'active_model_serializers'
 gem 'bootstrap-datepicker-rails'
 gem 'bootsy'
+gem 'cancancan'
 gem 'chartkick'
 gem 'devise'
 gem 'dotenv-rails'
@@ -31,6 +31,7 @@ gem 'redis-rails'
 gem 'rollbar'
 gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
 gem 'simple_calendar', git: 'git@github.com:excid3/simple_calendar.git', branch: 'master'
+gem 'truncate_html'
 gem 'twitter'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
