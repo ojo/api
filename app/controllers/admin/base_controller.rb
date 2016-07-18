@@ -1,5 +1,5 @@
 class Admin::BaseController < ApplicationController
-  layout "bootstrap"
+  layout 'sidenav'
 
   before_action :authenticate_user!
 

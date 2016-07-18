@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
 
-    get '/', to: 'metrics#ttt'
+    get '/', to: 'home#index'
 
     resources :managed_twitter_accounts, only: [:create, :update]
 

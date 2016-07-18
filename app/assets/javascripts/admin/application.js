@@ -1,7 +1,10 @@
 //= require jquery
+//
+// includes bootstrap
+//= require dresssed
+//
 //= require jquery-ui
 //= require jquery_ujs
-//= require bootstrap
 //
 //= require jquery.jcrop
 //  after bootstrap and jquery

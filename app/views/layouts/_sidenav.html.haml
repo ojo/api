@@ -3,7 +3,7 @@
     .profile
       = random_avatar 60, "img-circle profile-image"
       .profile-body
-        %h4 Fill Murray
+        %h4= truncate(current_user.email, length: 16)
         .user-links
           %a.btn.btn-link.btn-flat.btn-xs{"data-original-title" => "Profile", "data-placement" => "bottom", "data-toggle" => "tooltip", :href => "#"}
             %i.fa.fa-user
@@ -16,13 +16,13 @@
     %i.navbar-toggle.collapsed.fa.fa-bars{"data-target" => "#menu-content", "data-toggle" => "collapse"}
   %ul#menu-content.nav.navbar-collapse
     %li
-      %a{:href => "#"}
+      = link_to admin_news_items_path do
         %i.fa.fa-sitemap.fa-fw
-        Multi-Level Menu Example
+        News
         %span.fa.arrow
       %ul.nav.nav-second-level.collapse{"aria-expanded" => "false"}
-        %li
-          %a.active{:href => "#"} Second Level Item
+        = link_to new_admin_news_item_path do
+          New
         %li
           %a.active{:href => "#"} Second Level Item
         %li
