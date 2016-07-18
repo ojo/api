@@ -5,7 +5,7 @@ class SoundChat::LikeChannel < ApplicationCable::Channel
   end
 
   def likes(data)
-    BroadcastLikesJob.perform_later
+    BroadcastLikesJob.perform_later data['sender']
   end
 
   def unsubscribed
