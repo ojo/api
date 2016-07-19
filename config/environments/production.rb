@@ -1,5 +1,6 @@
 Rails.application.configure do
   config.action_mailer.default_url_options = { host: ENV.fetch('MAILER_HOST') }
+  config.action_mailer.deliver_later_queue_name = :ttrnq # TODO extract variable
 
   # Settings specified here will take precedence over those in config/application.rb.
 
