@@ -2,6 +2,8 @@
   .row
     .col-xs-12.col-sm-12.col-md-12.col-lg-12.mt20
       .panel.panel-default
+        .panel-heading
+          %h3.panel-title Manage
         .panel-body
           = form_tag action: :update, html: { class: 'form-inline' } do
             = select_tag :user_id,
@@ -15,6 +17,8 @@
   .row
     .col-xs-12.col-sm-12.col-md-12.col-lg-12.mt20
       .panel.panel-default
+        .panel-heading
+          %h3.panel-title Users and Roles
         .panel-body
           %table.table
             %thead

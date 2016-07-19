@@ -27,7 +27,7 @@ class Admin::RolesController < Admin::BaseController
     when 'add'
       @role.users.append @user
     when 'remove'
-      @role.users.where(user: @user).delete
+      @role.users.delete @user
     else
       flash[:alert] = 'please select an action'
       redirect_to action: :manage and return

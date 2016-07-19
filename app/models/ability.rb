@@ -32,7 +32,7 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
     if user.confirmed? and ['brian.holderchow@gmail.com', 'brian@ttrn.org'].include? user.email
-      can :manage, :all
+      can :manage, Role
     end
     if user.has_role? :superadmin # last because it must override
       can :manage, :all

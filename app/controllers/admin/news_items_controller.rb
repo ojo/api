@@ -1,5 +1,6 @@
 class Admin::NewsItemsController < Admin::BaseController
-  before_action :set_news_item, only: [:show, :edit, :update, :destroy, :crop]
+  before_action :set_news_item, only: [:crop]
+  load_and_authorize_resource
 
   # GET /news_items
   # GET /news_items.json
