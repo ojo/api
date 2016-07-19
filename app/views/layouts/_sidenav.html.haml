@@ -1,18 +1,7 @@
 .nav-side-menu
   .navbar-header
     .profile
-      = random_avatar 60, "img-circle profile-image"
-      .profile-body
-        %h4= truncate(current_user.email, length: 16)
-      -#   .user-links
-      -#     %a.btn.btn-link.btn-flat.btn-xs{"data-original-title" => "Profile", "data-placement" => "bottom", "data-toggle" => "tooltip", :href => "#"}
-      -#       %i.fa.fa-user
-      -#     %a.btn.btn-link.btn-flat.btn-xs{"data-original-title" => "Messages", "data-placement" => "bottom", "data-toggle" => "tooltip", :href => "#"}
-      -#       %i.fa.fa-envelope
-      -#     %a.btn.btn-link.btn-flat.btn-xs{"data-original-title" => "Settings", "data-placement" => "bottom", "data-toggle" => "tooltip", :href => "#"}
-      -#       %i.fa.fa-cog
-      -#     %a.btn.btn-link.btn-flat.btn-xs{"data-original-title" => "Logout", "data-placement" => "bottom", "data-toggle" => "tooltip", :href => "#"}
-      -#       %i.fa.fa-sign-out
+      = image_tag url_for('ojo-60x60.png')
     %i.navbar-toggle.collapsed.fa.fa-bars{"data-target" => "#menu-content", "data-toggle" => "collapse"}
   %ul.nav.navbar-collapse
     - if can? :manage, NewsItem

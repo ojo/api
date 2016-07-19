@@ -12,23 +12,25 @@
             %span.icon-bar
         / Collect the nav links, forms, and other content for toggling
         #main-content-nav.collapse.navbar-collapse
-          %ul.nav.navbar-nav
-            -# %li
-            -#   %a{:href => "#"} Servers
-            -# %li.dropdown
-            -#   %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            -#     Clusters
-            -#     %span.caret
-            -#   %ul.dropdown-menu
-            -#     %li
-            -#       %a{:href => "#"} Cluster 1
-            -#     %li
-            -#       %a{:href => "#"} Cluster 2
-            -#     %li
-            -#       %a{:href => "#"} Cluster 3
-            -#     %li
-            -#       %a{:href => "#"} Cluster 4
+          -# %ul.nav.navbar-nav
+          -#   %li
+          -#     %a{:href => "#"} Servers
+          -#   %li.dropdown
+          -#     %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          -#       Clusters
+          -#       %span.caret
+          -#     %ul.dropdown-menu
+          -#       %li
+          -#         %a{:href => "#"} Cluster 1
+          -#       %li
+          -#         %a{:href => "#"} Cluster 2
+          -#       %li
+          -#         %a{:href => "#"} Cluster 3
+          -#       %li
+          -#         %a{:href => "#"} Cluster 4
           %ul.nav.navbar-nav.navbar-right
+            %li
+              = link_to 'Log Out', destroy_user_session_path
             -# %li
             -#   %form.navbar-form.search-form{:role => "search"}
             -#     %input#searchbox.form-control{:placeholder => "Search", :type => "text"}/
@@ -46,17 +48,17 @@
             -#     %label.btn.btn-default
             -#       %input#option3{:autocomplete => "off", :name => "options", :type => "radio"}/
             -#       %i.fa.fa-user
-            %li.dropdown
-              %button.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
-                %i.fa.fa-fw.fa-cog
-                %span.caret.caret-light
-              %ul.dropdown-menu{:role => "menu"}
-                %li
-                  %a{:href => "#"} Site management
-                %li
-                  %a{:href => "#"} User management
-                %li
-                  %a{:href => "#"} Settings
+            -# %li.dropdown
+            -#   %button.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
+            -#     %i.fa.fa-fw.fa-cog
+            -#     %span.caret.caret-light
+            -#   %ul.dropdown-menu{:role => "menu"}
+            -#     %li
+            -#       %a{:href => "#"} Site management
+            -#     %li
+            -#       %a{:href => "#"} User management
+            -#     %li
+            -#       %a{:href => "#"} Settings
             -# %li.dropdown.notifications
             -#   %button.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
             -#     %i.fa.fa-fw.fa-bell
@@ -93,23 +95,23 @@
             -#             %i.fa.fa-cog
             -#           %a{:href => "#"} View all Notifications
             -#   / / dropdown
-            %li.dropdown.user-nav
-              %button.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
-                = random_avatar 34, "avatar img-rounded"
-                %span.caret.caret-light
-              %ul.dropdown-menu{:role => "menu"}
-                %li.profile-header
-                  = random_avatar 120, "avatar img-rounded"
-                  %p.m0.p0
-                    = current_user.email
-                  %p.small.m0.p0 # TODO roles
-                %li.profile-footer
-                  .pull-left
-                    %a.btn.btn-default.btn-flat{:href => "#"}
-                      %small Edit Profile
-                  .pull-right
-                    %a.btn.btn-default.btn-flat.small{:href => "#"}
-                      %small Log Out
+            -# %li.dropdown.user-nav
+            -#   %button.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
+            -#     = random_avatar 34, "avatar img-rounded"
+            -#     %span.caret.caret-light
+            -#   %ul.dropdown-menu{:role => "menu"}
+            -#     %li.profile-header
+            -#       = random_avatar 120, "avatar img-rounded"
+            -#       %p.m0.p0
+            -#         = current_user.email
+            -#       %p.small.m0.p0 # TODO roles
+            -#     %li.profile-footer
+            -#       .pull-left
+            -#         %a.btn.btn-default.btn-flat{:href => "#"}
+            -#           %small Edit Profile
+            -#       .pull-right
+            -#         %a.btn.btn-default.btn-flat.small{:href => "#"}
+            -#           %small Log Out
         / /.navbar-collapse
       / /.navbar-inner
     = yield
