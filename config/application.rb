@@ -26,13 +26,13 @@ module Ttrn
     config.cache_store = :redis_store, File.join(ENV.fetch('REDIS_URL'), '/0/cache'), { expires_in: 90.minutes }
 
     config.paperclip_defaults = {
-      storage: :fog,
-      fog_credentials: {
-      provider: 'Google',
-      google_storage_access_key_id: ENV.fetch('GCS_CLIENT_ID'),
-      google_storage_secret_access_key: ENV.fetch('GCS_SECRET_KEY'),
-    },
-      fog_directory: ENV.fetch('GCS_BUCKET'),
+      storage: :s3,
+      s3_credentials: {
+      bucket: ENV.fetch('S3_BUCKET'),
+      access_key_id: ENV.fetch('S3_ACCESS_KEY_ID'),
+      secret_access_key: ENV.fetch('S3_SECRET_ACCESS_KEY'),
+      s3_region: 'us-east-1',
+      }
     }
   end
 end
