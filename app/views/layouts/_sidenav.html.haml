@@ -1,7 +1,8 @@
 .nav-side-menu
   .navbar-header
     .profile
-      = image_tag url_for('ojo-60x60.png')
+      = link_to admin_path do
+        = image_tag url_for('ojo-60x60.png')
     %i.navbar-toggle.collapsed.fa.fa-bars{"data-target" => "#menu-content", "data-toggle" => "collapse"}
   %ul.nav.navbar-collapse
     - if can? :manage, NewsItem
