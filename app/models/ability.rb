@@ -8,6 +8,7 @@ class Ability
     # should not have access to any functions inside the application.
     # user ||= User.new # guest user (not logged in)
     # - brianhc
+    can :go, :home
 
     if user.has_role? :news
       can :manage, NewsItem
