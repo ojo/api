@@ -1,0 +1,12 @@
+- @title = "Confirmed!"
+#main.devise
+  .container-fluid
+    .row
+      %header.text-center
+        %h1=app_name
+        %p.p0.m0 Confirmed! You may now sign in...
+    .row.mt20
+      .col-xs-12.col-sm-12.col-md-6.col-md-offset-3.text-right
+        %ul.list-unstyled.options
+          %li.col-xs-12
+            = link_to "Sign in", new_session_path(resource_name)

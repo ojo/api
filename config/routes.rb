@@ -52,7 +52,16 @@ Rails.application.routes.draw do
     get 'socialmedia/instagram_oauth_callback', to: 'social_media_management#instagram_oauth_callback'
   end
 
-  devise_for :users, controllers: { registrations: 'admin/user_registrations' }
+  devise_for :users, controllers: {
+    confirmations: 'admin/user_confirmations',
+    registrations: 'admin/user_registrations'
+  }
+  devise_scope :user do
+    get '/confirmation-next-step' => 'admin/user_confirmations#next_step',
+      as: 'confirmation_next_step'
+    get '/confirmation-confirmed' => 'admin/user_confirmations#confirmed',
+      as: 'confirmation_confirmed'
+  end
 
   post '_jobs', to: 'job_runner#perform_now'
   get '_health', to: 'application#health'
