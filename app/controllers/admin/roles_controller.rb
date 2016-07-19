@@ -40,6 +40,6 @@ class Admin::RolesController < Admin::BaseController
   def manage
     authorize! :manage, Role
 
-    @users = User.all.order(email: :asc)
+    @users = User.all.order(full_name: :asc).order(email: :asc)
   end
 end

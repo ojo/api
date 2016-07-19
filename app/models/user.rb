@@ -4,6 +4,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :lockable, :timeoutable, :confirmable
 
+  validates_presence_of :full_name
+
   def has_role? role_name
     not self.roles.where(name: role_name).empty?
   end
