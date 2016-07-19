@@ -1,6 +1,7 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: ENV.fetch('MAILER_HOST') }
+  config.action_mailer.default_url_options = { host: 'ops.ttrn.org' }
   config.action_mailer.deliver_later_queue_name = :ttrnq # TODO extract variable
+  config.action_mailer.perform_caching = false
 
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -61,7 +62,6 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   config.active_job.queue_adapter     = :active_elastic_job
   # config.active_job.queue_name_prefix = "ttrn_#{Rails.env}"
-  config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
