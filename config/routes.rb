@@ -52,7 +52,7 @@ Rails.application.routes.draw do
     get 'socialmedia/instagram_oauth_callback', to: 'social_media_management#instagram_oauth_callback'
   end
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'admin/user_registrations' }
 
   post '_jobs', to: 'job_runner#perform_now'
   get '_health', to: 'application#health'

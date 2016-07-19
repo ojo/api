@@ -23,6 +23,8 @@
           %table.table
             %thead
               %th
+                full name
+              %th
                 email
               - Role.role_names.each do |role|
                 %th
@@ -30,6 +32,8 @@
             %tbody
               - @users.each do |user|
                 %tr{ class: ('success' if user.has_role? :superadmin)}
+                  %td
+                    = user.full_name
                   %td
                     = user.email
                   - Role.role_names.each do |role|
