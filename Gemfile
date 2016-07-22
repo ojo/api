@@ -16,7 +16,6 @@ gem 'haml'
 gem 'httparty'
 gem 'ice_cube'
 gem 'instagram'
-gem 'jbuilder', '~> 2.0' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jquery-rails'
 gem 'omniauth'
 gem 'paperclip'
@@ -47,17 +46,10 @@ group :development, :test do
 end
 
 group :development do
-  gem 'capistrano'
-  gem 'capistrano-bundler'
-  gem 'capistrano-linked-files'
-  gem 'capistrano-passenger'
-  gem 'capistrano-rails'
   gem 'foreman'
   gem 'haml-rails'
   gem 'listen'
   gem 'minitest-rails', git: 'git@github.com:blowmage/minitest-rails.git'
-  gem 'spring' # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console' # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
 end
 
