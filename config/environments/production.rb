@@ -49,7 +49,7 @@ Rails.application.configure do
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   if ENV['DISABLE_SQS_CONSUMER'].present?
     config.force_ssl = true
-    config.ssl_options = { redirect: { exclude: -> request { request.path =~ /_health/ } } }
+    config.ssl_options = { redirect: { exclude: -> request { /_health/.match request.path } } }
   end
 
   # Use the lowest log level to ensure availability of diagnostic information
