@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: git@github.com:excid3/simple_calendar.git
-  revision: 82fdea4d6fe2fa06205f0569fd02ab9127c8b178
+  revision: 9b4bfcc56ceac502141ca6e4b5279bda44d8aae1
   branch: master
   specs:
     simple_calendar (2.1.5)
@@ -77,13 +77,13 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.4.0)
-    arel (7.0.0)
-    aws-sdk (2.3.22)
-      aws-sdk-resources (= 2.3.22)
-    aws-sdk-core (2.3.22)
+    arel (7.1.0)
+    aws-sdk (2.4.1)
+      aws-sdk-resources (= 2.4.1)
+    aws-sdk-core (2.4.1)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.3.22)
-      aws-sdk-core (= 2.3.22)
+    aws-sdk-resources (2.4.1)
+      aws-sdk-core (= 2.4.1)
     bcrypt (3.1.11)
     bootstrap-datepicker-rails (1.6.1.1)
       railties (>= 3.0)
@@ -178,7 +178,7 @@ GEM
       faraday_middleware (>= 0.8, < 0.10)
       hashie (>= 0.4.0)
       multi_json (~> 1.0, >= 1.0.3)
-    jmespath (1.3.0)
+    jmespath (1.3.1)
     jquery-rails (4.1.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -228,7 +228,7 @@ GEM
       rails (>= 3.1)
     pg (0.18.4)
     pkg-config (1.1.7)
-    puma (3.4.0)
+    puma (3.5.2)
     rack (2.0.1)
     rack-mini-profiler (0.10.1)
       rack (>= 1.2.0)
@@ -269,7 +269,7 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
-    redis (3.3.0)
+    redis (3.3.1)
     redis-actionpack (5.0.0)
       actionpack (>= 4.0.0, < 6)
       redis-rack (~> 2.0.0.pre)
@@ -304,7 +304,7 @@ GEM
       tilt (>= 1.1, < 3)
     sexp_processor (4.7.0)
     simple_oauth (0.3.1)
-    sprockets (3.6.3)
+    sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (3.1.1)
