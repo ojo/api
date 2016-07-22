@@ -47,7 +47,7 @@ Rails.application.configure do
   # config.action_cable.mount_path = nil
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true if Env.fetch('DISABLE_SQS_CONSUMER').present?
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
@@ -61,7 +61,6 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   config.active_job.queue_adapter     = :active_elastic_job
-  # config.active_job.queue_name_prefix = "ttrn_#{Rails.env}"
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
