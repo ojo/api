@@ -47,7 +47,9 @@ Rails.application.configure do
   # config.action_cable.mount_path = nil
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = true if Env.fetch('DISABLE_SQS_CONSUMER').present?
+  if ENV['DISABLE_SQS_CONSUMER'].present?
+    config.force_ssl = true
+  end
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
