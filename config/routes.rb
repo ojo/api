@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     namespace :v0 do
       get 'timeline', to: 'timeline#index'
 
-      resources :news_items, only: [:index]
+      resources :news_items, only: [:index, :show]
 
       post '/now-playing/serato-dj', to: 'now_playing#create_serato_dj'
       post '/now-playing/csrds', to: 'now_playing#create_csrds'

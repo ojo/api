@@ -10,6 +10,8 @@ class NewsItem < ApplicationRecord
                                  message: '%{value} is not a valid state' }
   before_validation Proc.new { |o| o.state = 'draft' if state == nil }
 
+  scope :published, -> { where(state: :published).or(where(state: :republished)) }
+
   # attachments
   # ===========
   has_attached_file :photo, {
