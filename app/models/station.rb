@@ -1,5 +1,6 @@
 class Station < ApplicationRecord
   has_many :programs
+  has_many :play_events
 
   EventTypes = [:program, :song, :spot]
 

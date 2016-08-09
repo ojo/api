@@ -12,7 +12,8 @@ Rails.application.routes.draw do
       resources :news_items, only: [:index, :show]
 
       post '/now-playing/serato-dj', to: 'now_playing#create_serato_dj'
-      post '/now-playing/csrds', to: 'now_playing#create_csrds'
+      post '/now-playing/nexgen', to: 'now_playing#create_nexgen'
+      post '/now-playing/images', to: 'now_playing#upload_images'
     end
   end
 

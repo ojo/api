@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160719145111) do
+ActiveRecord::Schema.define(version: 20160809195358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,15 +45,28 @@ ActiveRecord::Schema.define(version: 20160719145111) do
     t.string   "title"
     t.string   "subtitle"
     t.text     "body"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "straphead"
     t.string   "photo_caption"
-    t.string   "state"
+    t.string   "state",              default: "draft"
+  end
+
+  create_table "play_events", force: :cascade do |t|
+    t.string   "title"
+    t.string   "artist"
+    t.string   "album"
+    t.integer  "length_in_secs"
+    t.string   "type"
+    t.integer  "station_id"
+    t.integer  "nexgen_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["station_id"], name: "index_play_events_on_station_id", using: :btree
   end
 
   create_table "programs", force: :cascade do |t|
@@ -83,7 +96,9 @@ ActiveRecord::Schema.define(version: 20160719145111) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "tag"
     t.index ["name"], name: "index_stations_on_name", unique: true, using: :btree
+    t.index ["tag"], name: "index_stations_on_tag", unique: true, using: :btree
   end
 
   create_table "stream_metrics", force: :cascade do |t|
@@ -134,6 +149,7 @@ ActiveRecord::Schema.define(version: 20160719145111) do
   end
 
   add_foreign_key "instagram_posts", "managed_instagram_accounts"
+  add_foreign_key "play_events", "stations"
   add_foreign_key "programs", "stations"
   add_foreign_key "tweets", "managed_twitter_accounts"
 end

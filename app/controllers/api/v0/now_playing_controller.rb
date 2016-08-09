@@ -4,39 +4,41 @@ class Api::V0::NowPlayingController < Api::V0::BaseController
     # TODO
   end
 
-  def create_csrds
+  def create_nexgen
+    return head :unauthorized if ENV.fetch('METADATA_UPLOAD_API_TOKEN') != params['Token']
 
-    if params[:token] != "foo" # TODO get token
-      return head :unauthorized
+    # TODO image_name = params['ImageHash']
+
+    m = params['Metadata']
+
+    s = Station.find_by(tag: params['Station'])
+    if s == nil
+      msg = "cannot find station with tag: #{params['Station']}"
+      render json: { errors: msg }, status: :bad_request
+      return
     end
 
-    begin
-      doc = Nokogiri::XML(params[:file]) do |config|
-        config.strict
-      end
-    rescue Nokogiri::XML::SyntaxError
-      return head :bad_request
+    pe = PlayEvent.new
+    pe.title = m['Title']
+    pe.artist = m['Artist']
+    pe.album = m['AlbumTitle']
+    pe.type = m['Type'] # Song, Spot, etc.
+    pe.length_in_secs = m['LengthInSecs']
+    pe.nexgen_id = m['Number']
+    pe.station = s
+    # TODO m['StartedAt']
+    # NB: ignore m['ImagePath']
+
+    if not pe.save
+      msg = "couldn't save play event"
+      render json: { errors: msg, play_event: pe, input: params }, status: 500
+      return
     end
 
-    params[:file].rewind
-    @station = station_for_xml(params[:name], doc)
-    # TODO decide which station this pertains to, based on name and contents
-    render json: params
+    head 200
   end
 
-  private
-  def station_for_xml name, doc
-    if name == 'foo'
-      type = doc.xpath('//Playing/item').attribute('type')
-
-      if type == 'MUS'
-        artist = doc.xpath('//Playing/item//Artist')[0].content
-        title = doc.xpath('//Playing/item//SongTitle')[0].content
-        started_at = DateTime.strptime(doc.xpath('//Playing/item/StartedAt')[0].content)
-        length_secs = doc.xpath('//Playing/item//Length')[0].content.to_i
-      end
-    elsif name == 'foob'
-      puts doc
-    end
+  def upload_images
+    head 200
   end
 end
