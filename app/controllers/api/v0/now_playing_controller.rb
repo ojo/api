@@ -33,6 +33,10 @@ class Api::V0::NowPlayingController < Api::V0::BaseController
       return
     end
 
+    if pe.image == nil
+      FetchPlayEventImageJob.perform_later pe
+    end
+
     head 200
   end
 
