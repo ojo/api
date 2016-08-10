@@ -27,7 +27,7 @@
                     = e.media_type
                 .image
                   - if e.image != nil
-                    = image_tag e.image.url
+                    = image_tag e.image.url(:medium)
                 .title
                   = e.title
                 .artist
