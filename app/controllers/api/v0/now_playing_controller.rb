@@ -33,7 +33,7 @@ class Api::V0::NowPlayingController < Api::V0::BaseController
       return
     end
 
-    if pe.image == nil
+    if pe.image == nil and pe.media_type == 'Song'
       FetchPlayEventImageJob.perform_later pe
     end
 
