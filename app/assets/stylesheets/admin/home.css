@@ -1,0 +1,7 @@
+.now-playing > .media-type, .image, .title, .artist, .album {
+  text-align: center;
+}
+
+.now-playing > .title {
+  font-weight: bold;
+}

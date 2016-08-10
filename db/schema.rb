@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20160809214031) do
     t.string   "artist"
     t.string   "album"
     t.integer  "length_in_secs"
-    t.string   "type"
+    t.string   "media_type"
     t.integer  "station_id"
     t.integer  "nexgen_id"
     t.datetime "created_at",          null: false

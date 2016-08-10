@@ -19,4 +19,18 @@
           .panel-heading
             Now Playing on #{s.name}
           .panel-body
-            = s.play_events.last
+            - e = s.now_playing_metadata
+            - if e != nil
+              .now-playing
+                - if e.media_type != ""
+                  .media-type.label
+                    = e.media_type
+                .image
+                  - if e.image != nil
+                    = image_tag e.image.url
+                .title
+                  = e.title
+                .artist
+                  = e.artist
+                .album
+                  = e.album

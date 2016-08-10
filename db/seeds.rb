@@ -14,3 +14,10 @@ Station.create(name: 'Kaiso')
 Station.create(name: 'Music for Life', tag: '1077fm')
 Station.create(name: 'STAR', tag: '947fm')
 Station.create(name: 'WEFM', tag: '961fm')
+
+u = User.new(
+  full_name: 'btc',
+  email: 'brian.holderchow@gmail.com',
+  password: 'foobar')
+u.skip_confirmation!
+u.save!
