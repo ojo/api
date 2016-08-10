@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160809195358) do
+ActiveRecord::Schema.define(version: 20160809214031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,17 @@ ActiveRecord::Schema.define(version: 20160809195358) do
     t.string   "state",              default: "draft"
   end
 
+  create_table "play_event_images", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.index ["name"], name: "index_play_event_images_on_name", unique: true, using: :btree
+  end
+
   create_table "play_events", force: :cascade do |t|
     t.string   "title"
     t.string   "artist"
@@ -64,8 +75,10 @@ ActiveRecord::Schema.define(version: 20160809195358) do
     t.string   "type"
     t.integer  "station_id"
     t.integer  "nexgen_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "play_event_image_id"
+    t.index ["play_event_image_id"], name: "index_play_events_on_play_event_image_id", using: :btree
     t.index ["station_id"], name: "index_play_events_on_station_id", using: :btree
   end
 
@@ -149,6 +162,7 @@ ActiveRecord::Schema.define(version: 20160809195358) do
   end
 
   add_foreign_key "instagram_posts", "managed_instagram_accounts"
+  add_foreign_key "play_events", "play_event_images"
   add_foreign_key "play_events", "stations"
   add_foreign_key "programs", "stations"
   add_foreign_key "tweets", "managed_twitter_accounts"
