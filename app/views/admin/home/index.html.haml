@@ -2,10 +2,9 @@
   .row
     .col-xs-12.col-sm-12.col-md-6.col-lg-6.mt20
       .panel.panel-default
-        .panel-body
+        .panel-heading
           Welcome to the TTRN/OJO Operations site.
-          <br/>
-          <br/>
+        .panel-body
           Get started by checking out one of the items on the menu to the left.
           <br/>
           <br/>
@@ -14,3 +13,10 @@
           <br/>
           If you need assistance, send an email to Brian:
           = mail_to 'brian@ttrn.org'
+    - Station.all.each do |s|
+      .col-xs-12.col-sm-12.col-md-6.col-lg-6.mt20
+        .panel.panel-default
+          .panel-heading
+            Now Playing on #{s.name}
+          .panel-body
+            = s.play_events.last

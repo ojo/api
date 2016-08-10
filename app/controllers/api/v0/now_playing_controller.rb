@@ -20,7 +20,7 @@ class Api::V0::NowPlayingController < Api::V0::BaseController
     pe.title = m['Title']
     pe.artist = m['Artist']
     pe.album = m['AlbumTitle']
-    pe.type = m['Type'] # Song, Spot, etc.
+    pe.media_type = m['Type'] # Song, Spot, etc.
     pe.length_in_secs = m['LengthInSecs']
     pe.nexgen_id = m['Number']
     pe.station = s
