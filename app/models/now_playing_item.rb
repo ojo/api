@@ -2,8 +2,18 @@
 class NowPlayingItem
   APP_NAME = "OJO"
 
+  attr_accessor :station
+
   def initialize station
     self.station = station
+  end
+
+  def event
+    @play_event ||= station.current_play_event # TODO and active
+  end
+
+  def program
+    @program ||= station.current_program
   end
 
   def title
@@ -48,15 +58,5 @@ class NowPlayingItem
   # TODO started_at
   # TODO duration
   # TODO ending_at
-
-  private
-  attr_accessor :station
-
-  def event
-    @play_event ||= station.current_play_event # TODO and active
-  end
-
-  def program
-    @program ||= station.current_program
-  end
+  # TODO seconds_remaining?
 end
