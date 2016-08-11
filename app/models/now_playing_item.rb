@@ -1,4 +1,4 @@
-# wraps a PlayEvent
+# wraps PlayEvent, Program, etc.
 class NowPlayingItem
   APP_NAME = "OJO"
 
