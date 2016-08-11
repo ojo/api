@@ -1,6 +1,4 @@
 class FetchPlayEventImageJob < ApplicationJob
-  queue_as :default
-
   def perform play_event
     return if play_event.media_type != 'Song' # TODO throw?
 
