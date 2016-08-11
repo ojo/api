@@ -11,6 +11,8 @@ class Api::V0::PlayEventsController < Api::V0::BaseController
 
     m = params['play_event'] 
 
+    return head :bad_request unless PlayEvent::MEDIA_TYPES.include? ['media_type']
+
     pe = PlayEvent.new
     pe.title = m['title']
     pe.artist = m['artist']
