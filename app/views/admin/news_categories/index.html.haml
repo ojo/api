@@ -1,0 +1,32 @@
+- @title = "Manage News Categories"
+
+- content_for :description do
+  %p Edit this template in app/views/NewsCategories/index.html.haml.
+
+.mt20.ml20
+  = link_to new_admin_news_category_path, class: 'btn btn-primary btn-large' do
+    = fa_icon_tag "plus"
+    Add Category
+
+.container-fluid
+  .row
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12.mt20
+      .panel.panel-default
+        .panel-body
+          %table.table
+            %thead
+              %tr
+                %th Name
+                %th Description
+                %th
+            %tbody
+            - @news_categories.each do |news_category|
+              %tr
+              %td= news_category.name
+              %td= news_category.description
+              %td.actions
+                = link_to fa_icon_tag("eye-open"), [:admin, news_category], rel: 'tooltip', title: 'Show'
+                = link_to fa_icon_tag("pencil"), edit_admin_news_category_path(news_category), rel: 'tooltip', title: 'Edit'
+                = link_to fa_icon_tag("trash"), [:admin, news_category], rel: 'tooltip', title: 'Delete', data: { confirm: 'Are you sure?' }, method: :delete
+
+            

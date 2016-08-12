@@ -16,6 +16,8 @@
             = link_to 'New', new_admin_news_item_path
           %li
             = link_to 'All', admin_news_items_path
+          %li
+            = link_to 'Categories', admin_news_categories_path
     - if can? :manage, Role
       %li
         = link_to admin_roles_manage_path do

@@ -33,6 +33,7 @@ Rails.application.routes.draw do
         get 'crop'
       end
     end
+    resources :news_categories
     resources :users
     resources :stations
     resources :managed_instagram_accounts, only: :update

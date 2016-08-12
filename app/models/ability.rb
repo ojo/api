@@ -12,6 +12,7 @@ class Ability
 
     if user.has_role? :news
       can :manage, NewsItem
+      can :manage, NewsCategory
     end
 
 

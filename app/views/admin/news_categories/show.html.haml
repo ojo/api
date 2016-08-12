@@ -1,0 +1,19 @@
+- @title = "Showing news_category"
+
+.container-fluid
+  .row
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12.mt20
+      .panel.panel-default
+        .panel-body
+          .row
+            %label.col-sm-2.form-label Name
+            .col-md-8
+              %span= @news_category.name
+          .row
+            %label.col-sm-2.form-label Description
+            .col-md-8
+              %span= @news_category.description
+          .row
+            .col-md-8
+              = link_to fa_icon_tag("pencil") + ' Edit', edit_admin_news_category_path(@news_category), class: 'btn btn-primary'
+              = link_to 'Back', admin_news_categories_path, class: 'btn'
