@@ -1,6 +1,12 @@
 class NewsItem < ApplicationRecord
 
   validates_presence_of :title, :body
+  validate :category_permitted
+
+  def category_permitted
+    errors.add(:category, "cannot literally be #{category}") if NewsCategory::RESERVED_NAMES.include? category
+    errors.add(:category, "must exist in News Categories. (#{category} does not).") unless NewsCategory.pluck(:name).include? category
+  end
 
   # states
   # ======

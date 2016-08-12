@@ -7,6 +7,12 @@
     .col-xs-12.col-sm-12.col-md-12.col-lg-12.mt20
       .panel.panel-default
         .panel-body
+          %ul.nav.nav-tabs
+            %li{class: ("active" if params[:category] == nil)}
+              = link_to "All", admin_news_items_path
+            - NewsCategory.order(name: :asc).all.each do |category|
+              = activatable_li_tag_with_link category.name, admin_news_items_path(category: category.name)
+            = activatable_li_tag_with_link "Uncategorized (#{ NewsItem.where(category: nil).count })", admin_news_items_path(category: 'Uncategorized')
           %table.table
             %thead
               %tr

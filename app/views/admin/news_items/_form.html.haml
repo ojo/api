@@ -12,6 +12,9 @@
     = f.file_field :photo
     .help-block
       You'll have a chance to resize and crop the image after saving an initial draft.
+  .form-group
+    = f.label 'Category'
+    = f.select :category, options_from_collection_for_select(NewsCategory.all.sort, 'name', 'name', @news_item.category)
   .form-group.form-group-sm
     = f.text_field :photo_caption, class: 'form-control', placeholder: 'Photo Caption (optional)'
   .form-group.form-group-sm

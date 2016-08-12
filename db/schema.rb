@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811182439) do
+ActiveRecord::Schema.define(version: 20160812011413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160811182439) do
     t.string   "straphead"
     t.string   "photo_caption"
     t.string   "state",              default: "draft"
+    t.string   "category"
   end
 
   create_table "play_event_images", force: :cascade do |t|

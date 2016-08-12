@@ -14,6 +14,9 @@
 
           %p#notice= notice
           .news-item
+            .category
+              %h4
+                (#{@news_item.category})
             .state
               %span.label= @news_item.state
             .photo

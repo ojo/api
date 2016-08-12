@@ -5,7 +5,15 @@ class Admin::NewsItemsController < Admin::BaseController
   # GET /news_items
   # GET /news_items.json
   def index
-    @news_items = NewsItem.all.order(created_at: :desc)
+    scope = case params[:category]
+            when nil
+              NewsItem
+            when 'Uncategorized'
+              NewsItem.where(category: nil)
+            else
+              NewsItem.where(category: params[:category])
+            end
+    @news_items = scope.order(created_at: :desc).all
   end
 
   # GET /news_items/1
@@ -74,7 +82,7 @@ class Admin::NewsItemsController < Admin::BaseController
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_item_params
       params.require(:news_item).permit(
-        :title, :subtitle, :body, :photo, :straphead, :photo_caption, :state,
+        :title, :subtitle, :body, :photo, :straphead, :photo_caption, :state, :category,
 
         # these are required for gem 'papercrop' cropping
         :photo_original_w, :photo_original_h, :photo_box_w, :photo_aspect,

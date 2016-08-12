@@ -6,6 +6,10 @@
   text-align: center;
 }
 
+.news-item > .category {
+  text-align: center;
+}
+
 .news-item > .state {
   text-align: center;
 }
