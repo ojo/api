@@ -5,13 +5,15 @@ class Api::V0::PlayEventsController < Api::V0::BaseController
     s = Station.find_by(tag: params['station_tag'])
     if s == nil
       msg = "cannot find station with tag: #{params['station_tag']}"
-      render json: { errors: msg }, status: :bad_request
-      return
+      return render json: { error: msg }, status: :bad_request
     end
 
-    m = params['play_event'] 
+    m = params['play_event']
 
-    return head :bad_request unless PlayEvent::MEDIA_TYPES.include? m['media_type']
+    unless PlayEvent::MEDIA_TYPES.include? m['media_type']
+      msg = "Media Type (#{m['media_type']}) is not supported"
+      return render json: { error: msg }, status: :bad_request
+    end
 
     pe = PlayEvent.new
     pe.title = m['title']
@@ -26,8 +28,7 @@ class Api::V0::PlayEventsController < Api::V0::BaseController
 
     if not pe.save
       msg = "couldn't save play event"
-      render json: { errors: msg, play_event: pe, input: params }, status: 500
-      return
+      return render json: { error: msg, play_event: pe, input: params }, status: 500
     end
 
     if pe.image == nil and pe.media_type == 'Song'
@@ -37,6 +38,6 @@ class Api::V0::PlayEventsController < Api::V0::BaseController
     # the job worries about validation
     BroadcastNowPlayingJob.perform_later s
 
-    head 200
+    render json: {}, status: :ok
   end
 end
