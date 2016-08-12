@@ -2,6 +2,8 @@ class Station < ApplicationRecord
   has_many :programs
   has_many :play_events
 
+  validates_presence_of :tag
+
   EventTypes = [:program, :song, :spot]
 
   def current_program
@@ -24,7 +26,7 @@ class Station < ApplicationRecord
     now < ending ? candidate : nil
   end
 
-  def now_playing_metadata
-    NowPlayingItem.new self
+  def now_playing
+    NowPlaying.new self
   end
 end

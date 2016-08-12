@@ -11,10 +11,10 @@ Rails.application.routes.draw do
 
       resources :news_items, only: [:index, :show]
 
-      post '/now-playing/serato-dj', to: 'now_playing#create_serato_dj'
-
       resources :play_events, only: [:create]
       resources :play_event_images, only: [:create]
+
+      get 'stations/now-playing'
     end
   end
 

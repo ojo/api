@@ -34,6 +34,9 @@ class Api::V0::PlayEventsController < Api::V0::BaseController
       FetchPlayEventImageJob.perform_later pe
     end
 
+    # the job worries about validation
+    BroadcastNowPlayingJob.perform_later s
+
     head 200
   end
 end

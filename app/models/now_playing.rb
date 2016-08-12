@@ -1,5 +1,8 @@
 # wraps PlayEvent, Program, etc.
-class NowPlayingItem
+class NowPlaying
+  extend ActiveModel::Naming
+  include ActiveModel::Serialization
+
   APP_NAME = "OJO"
 
   attr_accessor :station
@@ -14,6 +17,10 @@ class NowPlayingItem
 
   def program
     @program ||= station.current_program
+  end
+
+  def id
+    station.id
   end
 
   def title
@@ -55,7 +62,15 @@ class NowPlayingItem
     return ''
   end
 
-  # TODO started_at
+  def started_at
+    # TODO implement program.started_at
+    [event.try(:created_at), program.try(:started_at)].reject(&:nil?).max
+  end
+
+  def updated_at
+    [event.try(:updated_at), program.try(:updated_at), station.try(:updated_at)].reject(&:nil?).max
+  end
+
   # TODO duration
   # TODO ending_at
   # TODO seconds_remaining?

@@ -19,7 +19,7 @@
           .panel-heading
             Now Playing on #{s.name}
           .panel-body
-            - e = s.now_playing_metadata
+            - e = s.now_playing
             - if e != nil
               .now-playing
                 - if e.media_type != ""
