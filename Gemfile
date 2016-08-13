@@ -64,7 +64,7 @@ end
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-ui'
-  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-bootstrap', "3.3.6"
 end
 
 source "https://dresssed.com/gems/f94e3a9075840b0659bc/" do
