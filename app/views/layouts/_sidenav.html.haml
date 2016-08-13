@@ -5,6 +5,11 @@
         = image_tag url_for('ojo-60x60.png')
     %i.navbar-toggle.collapsed.fa.fa-bars{"data-target" => "#menu-content", "data-toggle" => "collapse"}
   %ul.nav.navbar-collapse
+    - if can? :read, StreamMetric
+      %li
+        = link_to admin_metrics_index_path do
+          %i.fa.fa-line-chart.fa-fw
+          Metrics
     - if can? :read, Program
       %li
         = link_to admin_programs_path do

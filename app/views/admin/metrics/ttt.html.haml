@@ -1,15 +1,20 @@
 = render 'admin/metrics/tabs'
 
-- @stream_metric_names.each do |name|
-  %h1
-    = "#{@time.strftime '%l:%M %p'} on #{name.upcase}"
-  = month_calendar(partial: 'admin/metrics/calendar', start_date: @time) do |date|
+.container-fluid
+  .row
+    - @stream_metric_names.each do |name|
+      .col-xs-12.col-sm-12.col-md-12.col-lg-12.mt20
+        .panel.panel-default
+          .panel-heading
+            = "#{@time.strftime '%l:%M %p'} on #{name.upcase}"
+          .panel-body
+            = month_calendar(partial: 'admin/metrics/calendar', start_date: @time) do |date|
 
-    - if date == Date.today # conditionally BOLD
-      %b= date.day
-    - else
-      = date.day
-    <br>
+              - if date == Date.today # conditionally BOLD
+                %b= date.day
+              - else
+                = date.day
+              <br>
 
-    %h2
-      = Maybe.new(StreamMetric.metric_at(date, @time, name: name)).connection_count.__value__
+              %h2
+                = Maybe.new(StreamMetric.metric_at(date, @time, name: name)).connection_count.__value__

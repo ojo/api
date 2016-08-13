@@ -1,12 +1,27 @@
+- content_for :head do
+  = javascript_include_tag "https://www.google.com/jsapi", 'chartkick'
+
 = render 'admin/metrics/tabs'
 
-.col-md-4
-  %h1 right now:
-  = pie_chart StreamMetric.where("created_at >= ?" , 1.minute.ago).where.not(name: StreamMetric::AGGREGATE_KEY).group(:name).average(:connection_count)
+.container-fluid
+  .row
+    .col-xs-12.col-sm-12.col-md-12.col-lg-6.mt20
+      .panel.panel-default
+        .panel-heading
+          Right Now
+        .panel-body
+          = pie_chart StreamMetric.where("created_at >= ?" , 1.minute.ago).where.not(name: StreamMetric::AGGREGATE_KEY).group(:name).average(:connection_count)
 
-.col-md-8
-  %h1 today:
-  = line_chart StreamMetric.where("created_at >=?", Date.today.beginning_of_day).group(:name).group_by_hour_of_day(:created_at).average(:connection_count), ytitle: '# listeners', xtitle: 'hr of day'
+    .col-xs-12.col-sm-12.col-md-12.col-lg-6.mt20
+      .panel.panel-default
+        .panel-heading
+          Today
+        .panel-body
+          = line_chart StreamMetric.where("created_at >=?", Date.today.beginning_of_day).group(:name).group_by_hour_of_day(:created_at).average(:connection_count), ytitle: '# listeners', xtitle: 'hr of day'
 
-%h1 week over week growth:
-= line_chart StreamMetric.weekly_avg_by_name
+    .col-xs-12.col-sm-12.col-md-12.col-lg-6.mt20
+      .panel.panel-default
+        .panel-heading
+          Week-over-Week Growth
+        .panel-body
+          = line_chart StreamMetric.weekly_avg_by_name

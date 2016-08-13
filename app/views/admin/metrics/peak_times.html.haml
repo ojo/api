@@ -1,17 +1,22 @@
 = render 'admin/metrics/tabs'
 
-- @stream_metric_names.each do |name|
-  %h1
-    = "Peak Times on #{name.upcase}"
-  = month_calendar(partial: 'admin/metrics/calendar') do |date|
+.container-fluid
+  .row
+    - @stream_metric_names.each do |name|
+      .col-xs-12.col-sm-12.col-md-12.col-lg-12.mt20
+        .panel.panel-default
+          .panel-heading
+            = "Peak Times on #{name.upcase}"
+          .panel-body
+            = month_calendar(partial: 'admin/metrics/calendar') do |date|
 
-    - if date == Date.today # conditionally BOLD
-      %b= date.day
-    - else
-      = date.day
-    <br>
+              - if date == Date.today # conditionally BOLD
+                %b= date.day
+              - else
+                = date.day
+              <br>
 
-    - maybe_peak = Maybe.new(StreamMetric.peak(date, name: name))
-    %h2
-      = maybe_peak.created_at.strftime("%I:%M %p").__value__
-    = maybe_peak.connection_count.__value__
+              - maybe_peak = Maybe.new(StreamMetric.peak(date, name: name))
+              %h2
+                = maybe_peak.created_at.strftime("%I:%M %p").__value__
+              = maybe_peak.connection_count.__value__
