@@ -1,17 +1,22 @@
-= render 'admin/programs/tabs'
+.container-fluid
+  .row
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12.mt20
+      .panel.panel-default
+        .panel-body
+          = render 'admin/programs/tabs'
 
-%table.table.table-striped
-  %tr
-    %th.span1 name
-    %th.span1 station
-    %th.span1 start
-    %th.span1 recurrences
-    %th.span1
-      -# destroy
-  - @programs.each do |p|
-    %tr
-      %td= p.name
-      %td= p.station.name
-      %td= time_tag p.schedule.start_time
-      %td= p.schedule
-      %td= button_to 'delete', [:admin, p], method: :delete, class: 'btn btn-danger'
+          %table.table.table-striped
+            %tr
+              %th.span1 name
+              %th.span1 station
+              %th.span1 start
+              %th.span1 recurrences
+              %th.span1
+                -# destroy
+            - @programs.each do |p|
+              %tr
+                %td= p.name
+                %td= p.station.name
+                %td= time_tag p.schedule.start_time
+                %td= p.schedule
+                %td= button_to 'delete', [:admin, p], method: :delete, class: 'btn btn-danger'

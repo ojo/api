@@ -6,7 +6,7 @@ class Admin::ProgramViewModel
 
 
   DATE_FORMAT = '%m/%d/%Y'
-  PUBLIC_ACCESSORS = [:name, :start_date, :start_time, :end_time, :station_id, :recurrences]
+  PUBLIC_ACCESSORS = [:name, :cast, :start_date, :start_time, :end_time, :station_id, :recurrences]
 
   validates_presence_of :name, :start_date, :start_time, :end_time, :station_id
 
@@ -30,6 +30,7 @@ class Admin::ProgramViewModel
 
   def self.from_program p
     self.new name: p.name,
+      cast: p.cast,
       recurrences: p.schedule.recurrence_rules.first, # NB: only one rule is supported
       station_id: p.station_id,
       start_time: p.schedule.start_time,
@@ -40,6 +41,7 @@ class Admin::ProgramViewModel
   def to_program p = Program.new
     p.tap do |e|
       e.name = self.name
+      e.cast = self.cast
       e.station_id = self.station_id
       e.schedule = self.to_ice_cube
     end

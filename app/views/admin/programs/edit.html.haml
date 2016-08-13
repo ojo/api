@@ -1,11 +1,12 @@
-= render 'admin/programs/tabs'
+.container-fluid
+  .row
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12.mt20
+      .panel.panel-default
+        .panel-body
+          = render 'admin/programs/tabs'
 
-%h1 Editing Program
-<br>
+          .col-sm-6
+            = render 'form'
 
-.col-sm-6
-  = render 'form'
-
-%div.row
-  .col-sm-10
-    = button_to 'delete', [:admin, @model], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }
+            %div.row
+              = button_to 'delete', [:admin, @model], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }

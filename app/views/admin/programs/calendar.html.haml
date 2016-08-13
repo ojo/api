@@ -1,34 +1,36 @@
-= render 'admin/programs/tabs'
+.container-fluid
+  .row
+    .col-xs-12.col-sm-12.col-md-12.col-lg-12.mt20
+      .panel.panel-default
+        .panel-body
+          = render 'admin/programs/tabs'
 
-<br>
-= form_tag(admin_programs_calendar_path, method: :get, class: 'form-horizontal') do
-  = select_tag "station_id",
-    options_from_collection_for_select(Station.all,
-      "id", "name", params[:station_id])
-  = submit_tag 'filter', class: 'btn btn-info'
+          <br>
+          = form_tag(admin_programs_calendar_path, method: :get, class: 'form-horizontal') do
+            = select_tag "station_id",
+              options_from_collection_for_select(Station.all,
+                "id", "name", params[:station_id])
+            = submit_tag 'filter', class: 'btn btn-info'
 
-<br>
-= link_to 'Today', admin_programs_calendar_path(start_date: Date.today,
-    station_id: params[:station_id]), class: 'btn btn-primary'
+          <br>
+          = link_to 'Today', admin_programs_calendar_path(start_date: Date.today,
+              station_id: params[:station_id]), class: 'btn btn-primary'
 
-= month_calendar do |date|
+          = month_calendar do |date|
 
-  - if date == Date.today
-    %strong
-      = "#{date.day}/#{date.month}"
-  - else
-    = "#{date.day}/#{date.month}"
+            - if date == Date.today
+              %strong
+                = "#{date.day}/#{date.month}"
+            - else
+              = "#{date.day}/#{date.month}"
 
-  <br>
-  %table
-    - @programs.each do |p|
-      - cache p do
-        - if p.schedule != nil and p.schedule.occurs_on? date
-          %tr
-            %td
-              %small
-                = program_time_range_pretty(p)
-            %td
-              = link_to edit_admin_program_path(p) do
-                %small
-                  = p.name
+            <br>
+            %ul
+              - @programs.each do |p|
+                - cache p do
+                  - if p.schedule != nil and p.schedule.occurs_on? date
+                    %li
+                      %small= program_time_range_pretty(p)
+                      = link_to edit_admin_program_path(p) do
+                        %small= p.name
+                      %small with #{p.cast}
