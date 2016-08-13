@@ -35,7 +35,7 @@ class Admin::ProgramViewModel
       station_id: p.station_id,
       start_time: p.schedule.start_time,
       end_time: p.schedule.end_time,
-      start_date: p.schedule.start_date.strftime(DATE_FORMAT)
+      start_date: p.schedule.start_time.strftime(DATE_FORMAT)
   end
 
   def to_program p = Program.new
