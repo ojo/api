@@ -71,6 +71,12 @@ class NowPlaying
     [event.try(:updated_at), program.try(:updated_at), station.try(:updated_at)].reject(&:nil?).max
   end
 
+  def until # time
+    return event.created_at + event.length_in_secs if event != nil
+    return program.todays_occurrence.end_time if program != nil
+    Time.now
+  end
+
   # TODO duration
   # TODO ending_at
   # TODO seconds_remaining?

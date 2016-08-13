@@ -35,8 +35,9 @@ class Api::V0::PlayEventsController < Api::V0::BaseController
       FetchPlayEventImageJob.perform_later pe
     end
 
-    # the job worries about validation
+    # broadcast now _and_ after expiry
     BroadcastNowPlayingJob.perform_later s
+    BroadcastNowPlayingJob.new(s).enqueue wait: s.now_playing.until + 1
 
     render json: {}, status: :ok
   end
