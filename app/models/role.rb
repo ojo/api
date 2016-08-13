@@ -1,7 +1,7 @@
 class Role < ApplicationRecord
   has_and_belongs_to_many :users
 
-  VALID_ROLES = %w[news superadmin].freeze
+  VALID_ROLES = %w[staff news superadmin].freeze
 
   validates_presence_of :name
   validates_uniqueness_of :name
