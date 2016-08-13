@@ -1,14 +1,17 @@
 class Admin::ProgramsController < Admin::BaseController
   def index
+    authorize! :read, Program
     @programs = Program.order(name: :asc).all
   end
 
   def new
+    authorize! :create, Program
     @program = Admin::ProgramViewModel.new
     @program.start_date = Date.today.strftime('%m/%d/%Y')
   end
 
   def create
+    authorize! :create, Program
     @program = Admin::ProgramViewModel.new event_view_model_params
     if not @program.valid?
       flash[:notice] = @program.errors.messages
@@ -21,12 +24,14 @@ class Admin::ProgramsController < Admin::BaseController
   end
 
   def edit
+    authorize! :update, Program
     @program = Program.find_by_id params[:id]
     @view_model = Admin::ProgramViewModel.from_program @program
     raise ArgumentError.new @view_model.errors.messages unless @view_model.valid?
   end
 
   def update
+    authorize! :update, Program
     @view_model = Admin::ProgramViewModel.new event_view_model_params
     if not @view_model.valid?
       flash[:notice] = @view_model.errors.messages
@@ -39,11 +44,13 @@ class Admin::ProgramsController < Admin::BaseController
   end
 
   def destroy
+    authorize! :destroy, Program
     Program.destroy(params[:id])
     redirect_to admin_programs_path
   end
 
   def calendar
+    authorize! :read, Program
     id = params[:station_id]
     if id
       @programs = Program.where(station_id: id).sort_by { |p| p.schedule.start_time }
