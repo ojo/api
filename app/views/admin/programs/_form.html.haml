@@ -20,6 +20,7 @@
   .form-group
     = select_recurring 'program', 'recurrences',
       [ IceCube::Rule.weekly.day(:monday, :tuesday, :wednesday, :thursday, :friday),
+      IceCube::Rule.weekly.day(:monday, :tuesday, :wednesday, :thursday),
       IceCube::Rule.weekly.day(:saturday, :sunday),
       IceCube::Rule.weekly.day(:friday),
       IceCube::Rule.weekly.day(:saturday),
