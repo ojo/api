@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160812011413) do
+ActiveRecord::Schema.define(version: 20160813033641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20160812011413) do
     t.datetime "updated_at", null: false
     t.text     "schedule"
     t.integer  "station_id"
+    t.string   "cast"
     t.index ["station_id"], name: "index_programs_on_station_id", using: :btree
   end
 

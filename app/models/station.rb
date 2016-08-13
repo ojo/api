@@ -8,7 +8,7 @@ class Station < ApplicationRecord
 
   def current_program
     active_program = self.programs.to_a.keep_if { |p|
-      p.schedule.is_occurring? Time.now
+      p.schedule.occurring_at? Time.now
     }.first
     active_program
   end

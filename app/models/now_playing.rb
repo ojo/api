@@ -12,7 +12,7 @@ class NowPlaying
   end
 
   def event
-    @play_event ||= station.current_play_event # TODO and active
+    @play_event ||= station.current_play_event
   end
 
   def program
@@ -27,7 +27,7 @@ class NowPlaying
     # 1. play event's title if there is an active Song play event
     return event.try(:title) if event.try(:media_type) == 'Song'
     # 2. else program's name if there is an active program
-    return program.try(:title) if program != nil
+    return program.name if program != nil and program.name != nil
     # 3. else blank
     return ""
   end
@@ -36,7 +36,7 @@ class NowPlaying
     # 1. play_event's artist if there is an active Song
     return event.try(:artist) if event.try(:media_type) == 'Song'
     # 2. program's cast if there is an active program
-    return program.try(:cast) if program != nil
+    return program.cast if program != nil and program.cast != nil
     # 3. else station name
     return station.name
   end
