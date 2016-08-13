@@ -15,6 +15,11 @@ class Ability
       can :manage, NewsCategory
     end
 
+    if user.has_role? :staff
+      can :manage, Program
+      can :read, NewsItem
+      can :read, NewsCategory
+    end
 
     # The first argument to `can` is the action you are giving the user
     # permission to do.
