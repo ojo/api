@@ -4,7 +4,7 @@ class FetchPlayEventImageJob < ApplicationJob
 
     c = fetch_top_candidate generate_query_term(play_event)
     if c == nil
-      Admin::PlayEventImageNotFoundMailer.create(play_event).deliver_now
+      Admin::PlayEventImageNotFoundMailer.create(play_event: play_event).deliver_now
       return
     end
 
