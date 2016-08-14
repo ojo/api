@@ -1,9 +1,12 @@
 class FetchPlayEventImageJob < ApplicationJob
   def perform play_event
-    return if play_event.media_type != 'Song' # TODO throw?
+    return if play_event.media_type != 'Song'
 
     c = fetch_top_candidate generate_query_term(play_event)
-    return if c == nil # TODO throw?
+    if c == nil
+      Admin::PlayEventImageNotFoundMailer.create(play_event).deliver_now
+      return
+    end
 
     pei = PlayEventImage.new
     pei.file = URI.parse get_appropriate_art(c)
