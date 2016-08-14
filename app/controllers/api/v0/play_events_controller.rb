@@ -37,7 +37,7 @@ class Api::V0::PlayEventsController < Api::V0::BaseController
 
     # broadcast now _and_ after expiry
     BroadcastNowPlayingJob.perform_later s
-    BroadcastNowPlayingJob.new(s).enqueue wait: s.now_playing.until + 1
+    BroadcastNowPlayingJob.new(s).enqueue wait_until: s.now_playing.until + 1
 
     render json: {}, status: :ok
   end
