@@ -9,7 +9,7 @@ class Admin::HomeController < Admin::BaseController
     songs_played_by_day.each do |date, count|
       num_without_art = without_art_by_day[date]
       next if num_without_art == nil
-      @percentage_with_art_by_day[date] = num_without_art / count
+      @percentage_with_art_by_day[date] = 100 - (num_without_art.to_f / count) * 100
     end
   end
 end
