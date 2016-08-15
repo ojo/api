@@ -21,7 +21,7 @@
         .panel-heading
           Album Art Progress
         .panel-body
-          Each day, we record the number of songs that played without album art.
+          Each day, we record the proportion of played songs that had album art.
           = line_chart @percentage_with_art_by_day, ytitle: '% of songs with art'
     - Station.all.each do |s|
       .col-xs-12.col-sm-12.col-md-6.col-lg-6.mt20
