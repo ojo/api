@@ -1,4 +1,5 @@
 class PlayEventImage < ApplicationRecord
+  has_many :play_events
 
   # paperclip
   has_attached_file :file, styles: { large: "500x500>", medium: "300x300>", thumb: "100x100>", mini: "50x50>" }
