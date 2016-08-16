@@ -10,11 +10,6 @@
         = link_to admin_metrics_index_path do
           %i.fa.fa-line-chart.fa-fw
           Metrics
-    - if can? :read, Program
-      %li
-        = link_to admin_programs_path do
-          %i.fa.fa-calendar.fa-fw
-          Programs
     - if can? :read, NewsItem
       %li
         = link_to admin_news_items_path do
