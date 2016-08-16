@@ -8,4 +8,4 @@ cron:
       schedule: "* * * * *"
     - name: 'CheckForRecentPlayEventsJob'
       url: '/_jobs'
-      schedule: "*/15 * * * *"
+      schedule: "0 * * * *"
