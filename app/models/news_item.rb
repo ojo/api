@@ -31,4 +31,10 @@ class NewsItem < ApplicationRecord
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
   validates_presence_of :photo
 
+  after_save :compute_photo_dominant_color
+
+  def compute_photo_dominant_color
+    return unless changes[:photo_updated_at] != nil
+    ComputeDominantColorJob.perform_later self, 'photo', 'photo_dominant_color'
+  end
 end

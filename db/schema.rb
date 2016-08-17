@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160813033641) do
+ActiveRecord::Schema.define(version: 20160817053942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,16 +53,17 @@ ActiveRecord::Schema.define(version: 20160813033641) do
     t.string   "title"
     t.string   "subtitle"
     t.text     "body"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "straphead"
     t.string   "photo_caption"
-    t.string   "state",              default: "draft"
+    t.string   "state",                default: "draft"
     t.string   "category"
+    t.string   "photo_dominant_color"
   end
 
   create_table "play_event_images", force: :cascade do |t|
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 20160813033641) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
+    t.string   "dominant_color"
     t.index ["name"], name: "index_play_event_images_on_name", unique: true, using: :btree
   end
 

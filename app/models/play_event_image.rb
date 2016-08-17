@@ -11,4 +11,10 @@ class PlayEventImage < ApplicationRecord
     end
   end
 
+  after_save :compute_dominant_color
+
+  def compute_dominant_color
+    return unless changes[:file_updated_at] != nil
+    ComputeDominantColorJob.perform_later self, 'file', 'dominant_color'
+  end
 end

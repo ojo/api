@@ -56,6 +56,10 @@ class NowPlaying
     # 5. TODO else App logo
   end
 
+  def image_dominant_color
+    return event.image.dominant_color if event != nil and event.image != nil
+  end
+
   def media_type
     return event.media_type if event != nil
     return 'Program' if program != nil

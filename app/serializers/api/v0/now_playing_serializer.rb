@@ -9,6 +9,7 @@ class Api::V0::NowPlayingSerializer < ActiveModel::Serializer
     :station_tag,
     :started_at,  # UNIX time
     :length_in_secs, # UNIX time
+    :artwork_dominant_color,
     :artwork_url_500,
     :artwork_url_300,
     :artwork_url_100
@@ -35,6 +36,10 @@ class Api::V0::NowPlayingSerializer < ActiveModel::Serializer
 
   def length_in_secs
     object.event.length_in_secs if object.event != nil
+  end
+
+  def artwork_dominant_color
+    object.image_dominant_color
   end
 
   def artwork_url_500
