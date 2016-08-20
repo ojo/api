@@ -18,12 +18,14 @@
               %tr
                 %th Name
                 %th Description
+                %th Priority
                 %th
             %tbody
             - @news_categories.each do |news_category|
               %tr
               %td= news_category.name
               %td= news_category.description
+              %td= news_category.priority
               %td.actions
                 = link_to fa_icon_tag("eye-open"), [:admin, news_category], rel: 'tooltip', title: 'Show'
                 = link_to fa_icon_tag("pencil"), edit_admin_news_category_path(news_category), rel: 'tooltip', title: 'Edit'

@@ -3,7 +3,7 @@ class Admin::NewsCategoriesController < Admin::BaseController
 
   # GET /news_categories
   def index
-    @news_categories = NewsCategory.all
+    @news_categories = NewsCategory.order(priority: :asc).all
   end
 
   # GET /news_categories/1
@@ -48,6 +48,6 @@ class Admin::NewsCategoriesController < Admin::BaseController
   private
     # Only allow a trusted parameter "white list" through.
     def news_category_params
-      params.require(:news_category).permit(:name, :description)
+      params.require(:news_category).permit(:name, :description, :priority)
     end
 end
