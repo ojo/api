@@ -6,6 +6,6 @@ cron:
     - name: 'FetchStreamMetricsJob'
       url: '/_jobs'
       schedule: "* * * * *"
-    - name: 'CheckForRecentPlayEventsJob'
+    - name: 'CheckForRecentDataJob'
       url: '/_jobs'
-      schedule: "0 * * * *"
+      schedule: "* * * * *"

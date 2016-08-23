@@ -56,13 +56,6 @@ group :development do
   gem 'web-console' # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
 end
 
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-
 source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-ui'
   gem 'rails-assets-bootstrap', "3.3.6"
