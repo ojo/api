@@ -35,6 +35,8 @@ class CheckForRecentDataJob < ApplicationJob
   end
 
   class NoNewDataMailer < ApplicationMailer
+    include ActionView::Helpers::DateHelper
+
     def create opts
       name = opts[:klass].model_name.human.downcase # must include ActiveRecord::Naming
       since = opts[:since]
