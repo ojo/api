@@ -1,4 +1,0 @@
----
-- hosts: streamers
-  roles:
-      - { role: wowza, become: yes, become_user: root }

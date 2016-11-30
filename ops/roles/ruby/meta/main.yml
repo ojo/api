@@ -1,4 +1,0 @@
----
-dependencies:
-    - { role: common, become: yes, become_user: root }
-    - { role: postgres, become: yes, become_user: root }

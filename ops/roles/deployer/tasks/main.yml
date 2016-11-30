@@ -1,9 +1,0 @@
----
-- copy: src=deployer dest=/home/deploy/.ssh/id_rsa mode=0600 group=sudo owner=deploy
-- copy: src=deployer.pub dest=/home/deploy/.ssh/id_rsa.pub group=sudo owner=deploy
-- file:
-    path: /var/www
-    state: directory
-    mode: 0770
-    owner: root
-    group: sudo

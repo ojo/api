@@ -1,6 +1,0 @@
----
-- apt: name=unzip update_cache=yes
-- unarchive:
-    copy: no
-    src: https://www.wowza.com/downloads/user/575f03b9cae1e/WowzaStreamingEngine-Update-4.4.1.zip
-    dest: /tmp

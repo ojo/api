@@ -1,2 +1,0 @@
-*.retry
-roles/redis/files/*.tar.gz
