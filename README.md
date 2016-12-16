@@ -70,3 +70,14 @@ Production API URL: https://api.ojo.world
   }
 }
 ```
+
+## Now Playing (Real-time)
+
+Firebase notification key: "/topics/now-playing-#{station_tag}"
+
+example keys:
+
+* "/topics/now-playing-961fm"
+* "/topics/now-playing-947fm"
+* "/topics/now-playing-1077fm"
+
