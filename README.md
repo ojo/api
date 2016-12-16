@@ -2,6 +2,7 @@
 
 * Production API URL: https://api.ojo.world
 * The API is JSON API formatted: http://jsonapi.org/
+
 ## News Items
 
 /api/v0/news_items
