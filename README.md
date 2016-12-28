@@ -5,7 +5,7 @@
 
 ## News Items
 
-/api/v0/news_items
+GET /api/v0/news_items
 
 ``` json
 {
@@ -46,9 +46,34 @@
 }
 ```
 
+## News Item
+
+GET /api/v0/news_items/:id
+
+``` json
+{
+  "data": {
+    "id": "100",
+    "type": "news-items",
+    "attributes": {
+      "title": "Chinese High School To Visit Trinidad for Laventille Steelband Festival",
+      "subtitle": "",
+      "body": "Published: 4th August,2016<br><br>Students, parents and teachers of the Beijing Ritan High School of the Peoples Republic of China, one of the very few schools in China with a Steel Orchestra, will arrive in Trinidad on Friday (Aug 5) to witness the annual Laventille Steelband Festival Street Parade.<br><br>Now in it's 18th year, the festival is hosted by the Laven<span>tille Steelband Festival Foundation and will feature over 30 steelbands, including champion steel orchestra Desperadoes, Renegades, All Stars, Exodus, Phase 2, Invaders, Supernovas, Sound Specialists, UniStars, Serenaders, Pan Elders, Trinidad East side, Marsicans and many more.<br><br>The main purpose of the visit is for the Ritan High School to forge a strong relationship with a complementary school program in Trinidad and Tobago to help further develop Ritan's existing pan program, while broadening their understanding of the steelpan and the land of its birth.<br><br>Based on the successes of its championship steel orchestra, the Success Stars Pan Sounds and its well-established music program, the Success Laventille Secondary School was chosen to host an exchange with the students and teachers of the Ritan High School, who will return to China on Monday August 8.<\/span>",
+      "created-at": 1470604462,
+      "photo-thumb-url": "http:\/\/s3.amazonaws.com\/ttrn-api-photos\/news_items\/photos\/000\/000\/100\/thumb\/13914076_10153965869283681_4065238401158579977_o.jpg?1470604461",
+      "photo-dominant-color": "#402813",
+      "photo-url": "http:\/\/s3.amazonaws.com\/ttrn-api-photos\/news_items\/photos\/000\/000\/100\/original\/13914076_10153965869283681_4065238401158579977_o.jpg?1470604461",
+      "straphead": "",
+      "photo-caption": "",
+      "category": "News"
+    }
+  }
+}
+```
+
 ## Now Playing
 
-/api/v0/stations/now-playing
+GET /api/v0/stations/now-playing
 
 ``` json
 {
@@ -74,7 +99,7 @@
 
 ## Now Playing (Real-time)
 
-Firebase notification key: "/topics/now-playing-#{station_tag}"
+Real-time metadata updates are provided through Firebase Cloud Messaging. The format of the Firebase notification key is "/topics/now-playing-#{station_tag}"
 
 example keys:
 
@@ -82,3 +107,4 @@ example keys:
 * "/topics/now-playing-947fm"
 * "/topics/now-playing-1077fm"
 
+## Discover Events
