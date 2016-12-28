@@ -7,6 +7,8 @@
 
 GET /api/v0/news_items
 
+- [ ] TODO: Decide on a pagination style: https://coderwall.com/p/lkcaag/pagination-you-re-probably-doing-it-wrong
+
 ``` json
 {
   "data": [
