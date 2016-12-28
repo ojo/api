@@ -107,4 +107,16 @@ example keys:
 * "/topics/now-playing-947fm"
 * "/topics/now-playing-1077fm"
 
-## Discover Events
+## (Discover) Events
+
+GET /api/v0/events
+
+``` json
+TODO
+```
+
+GET /api/v0/events/:id
+
+``` json
+TODO
+```
