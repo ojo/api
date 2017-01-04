@@ -1,9 +1,10 @@
 class BroadcastNowPlayingJob < ApplicationJob
   def perform station
     np = station.now_playing
-    json = Api::V0::NowPlayingSerializer.new(np).as_json
+    serializer = Api::V0::NowPlayingSerializer.new(np)
+    adapted = ActiveModelSerializers::Adapter::JsonApi.new(serializer)
     $fcm.send_with_notification_key(topic_for_station(station),
-                                    data: json)
+                                    data: adapted)
   end
 
   def topic_for_station s
