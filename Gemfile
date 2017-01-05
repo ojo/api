@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 
-gem 'active_elastic_job'
+gem 'active_elastic_job', "1.7.0"
 gem 'active_model_serializers'
 gem 'aws-sdk'
 gem 'bootstrap-datepicker-rails'
