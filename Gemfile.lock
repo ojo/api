@@ -54,9 +54,9 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    active_elastic_job (1.7.0)
+    active_elastic_job (1.6.1)
       aws-sdk (~> 2)
-      rails (>= 4.2)
+      rails (>= 4.2, < 5.0.1)
     active_model_serializers (0.10.2)
       actionpack (>= 4.1, < 6)
       activemodel (>= 4.1, < 6)
@@ -364,7 +364,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_elastic_job (= 1.7.0)
+  active_elastic_job
   active_model_serializers
   aws-sdk
   bootstrap-datepicker-rails
@@ -413,4 +413,4 @@ DEPENDENCIES
   with_advisory_lock
 
 BUNDLED WITH
-   1.13.6
+   1.12.4
