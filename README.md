@@ -73,6 +73,31 @@ GET /api/v0/news_items/:id
 }
 ```
 
+## News Categories
+
+GET /api/v0/news_items/categories
+
+``` json
+[
+  {
+    "id": 3,
+    "name": "Arts"
+  },
+  {
+    "id": 4,
+    "name": "Business"
+  },
+  {
+    "id": 2,
+    "name": "News"
+  },
+  {
+    "id": 1,
+    "name": "Sports"
+  }
+]
+```
+
 ## Now Playing
 
 GET /api/v0/stations/now-playing
