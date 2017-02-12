@@ -21,3 +21,8 @@ u = User.new(
   password: 'foobar')
 u.skip_confirmation!
 u.save!
+
+NewsCategory.create(name: 'Sports')
+NewsCategory.create(name: 'News')
+NewsCategory.create(name: 'Arts')
+NewsCategory.create(name: 'Business')

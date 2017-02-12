@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     namespace :v0 do
       get 'timeline', to: 'timeline#index'
 
-      resources :news_items, only: [:index, :show]
+      resources :news_items, only: [:index, :show] do
+        collection do
+          get 'categories'
+        end
+      end
 
       resources :play_events, only: [:create]
       resources :play_event_images, only: [:create]
