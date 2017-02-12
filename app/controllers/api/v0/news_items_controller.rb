@@ -14,7 +14,7 @@ class Api::V0::NewsItemsController < Api::V0::BaseController
   def categories
     serializer = if format_jsonapi then Api::V0::NewsCategorySerializer else nil end
     items = NewsCategory.select(:id, :name).order(name: :asc).all
-    render json: itmms, each_serialilzer: serializer
+    render json: items, each_serialilzer: serializer
   end
 
   private
