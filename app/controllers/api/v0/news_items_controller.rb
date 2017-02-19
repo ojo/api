@@ -2,7 +2,8 @@ class Api::V0::NewsItemsController < Api::V0::BaseController
   include ::ActionController::Serialization
 
   def index
-    items = NewsItem.published.order(created_at: :desc).all
+    period = (Time.now - 3.day)..Time.now
+    items = NewsItem.where(created_at: period).published.order(created_at: :desc).all
     render json: items, each_serializer: Api::V0::NewsItemSerializer
   end
 
