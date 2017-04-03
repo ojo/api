@@ -2,8 +2,28 @@ class Api::V0::NewsItemsController < Api::V0::BaseController
   include ::ActionController::Serialization
 
   def index
-    items = NewsItem.published.order(created_at: :desc).limit(20)
-    render json: items, each_serializer: Api::V0::NewsItemSerializer
+
+    if params[:before] then
+      comparator = 'created_at < ?'
+    elsif params[:after] then
+      comparator = 'created_at > ?'
+    end
+
+    time = params[:before] or params[:after]
+    paginated = lambda { time }
+
+    limit = params[:limit]
+    limited = lambda { limit }
+
+    q = NewsItem.published.order(created_at: :desc)
+    if paginated then
+      q = q.where(comparator, time)
+    end
+    if limited then
+      q = q.limit(limit)
+    end
+
+    render json: q.all, each_serializer: Api::V0::NewsItemSerializer
   end
 
   def show
