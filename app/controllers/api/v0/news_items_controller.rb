@@ -7,9 +7,11 @@ class Api::V0::NewsItemsController < Api::V0::BaseController
     if params[:before] or params[:after] then
       key = params[:by_date] ? 'created_at' : 'id'
       if params[:before] then
+        value = params[:before]
         comparator = "#{key} < ?"
       end
       if params[:after] then
+        value = params[:after]
         comparator = "#{key} > ?"
       end
       q = q.where(comparator, value)
