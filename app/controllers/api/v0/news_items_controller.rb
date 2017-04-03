@@ -3,10 +3,12 @@ class Api::V0::NewsItemsController < Api::V0::BaseController
 
   def index
 
+    key = params[:by_date] ? 'created_at' : 'id'
+
     if params[:before] then
-      comparator = 'created_at < ?'
+      comparator = "#{key} < ?"
     elsif params[:after] then
-      comparator = 'created_at > ?'
+      comparator = "#{key} > ?"
     end
 
     time = params[:before] or params[:after]
