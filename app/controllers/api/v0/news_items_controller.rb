@@ -17,9 +17,8 @@ class Api::V0::NewsItemsController < Api::V0::BaseController
       q = q.where(comparator, value)
     end
 
-    limit = params[:limit]
-    if limit then
-      q = q.limit(limit)
+    if params[:limit] then
+      q = q.limit(params[:limit])
     end
 
     render json: q.all, each_serializer: Api::V0::NewsItemSerializer
