@@ -2,26 +2,21 @@ class Api::V0::NewsItemsController < Api::V0::BaseController
   include ::ActionController::Serialization
 
   def index
+    q = NewsItem.published.order(created_at: :desc)
 
-    key = params[:by_date] ? 'created_at' : 'id'
-
-    if params[:before] then
-      comparator = "#{key} < ?"
-    elsif params[:after] then
-      comparator = "#{key} > ?"
+    if params[:before] or params[:after] then
+      key = params[:by_date] ? 'created_at' : 'id'
+      if params[:before] then
+        comparator = "#{key} < ?"
+      end
+      if params[:after] then
+        comparator = "#{key} > ?"
+      end
+      q = q.where(comparator, value)
     end
-
-    time = params[:before] or params[:after]
-    paginated = lambda { time }
 
     limit = params[:limit]
-    limited = lambda { limit }
-
-    q = NewsItem.published.order(created_at: :desc)
-    if paginated then
-      q = q.where(comparator, time)
-    end
-    if limited then
+    if limit then
       q = q.limit(limit)
     end
 
